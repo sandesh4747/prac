@@ -476,8 +476,8 @@ i {
     gap: 40px;
     justify-content: center;
     align-items: center;
-    padding-top: 80px;
-    padding: 40px;
+
+    padding: 80px 0 40px 0;
     margin-bottom: 0;
   }
 }
