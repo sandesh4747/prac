@@ -189,6 +189,7 @@ i {
   align-items: center;
   height: 50vh;
   margin-top: 35px;
+  margin-bottom: 50px;
 }
 .form {
   display: flex;
