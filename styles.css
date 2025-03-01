@@ -5,7 +5,7 @@
 }
 body {
   font-family: sans-serif;
-  padding: 16px;
+  padding: 30px;
   background-color: #f6ede1;
 }
 
@@ -52,6 +52,8 @@ header {
 .container {
   color: #fff;
   display: grid;
+  justify-content: center;
+  /* align-items: center; */
   grid-template-columns: repeat(3, minmax(100px, 1fr));
   /* grid-template-columns: repeat(3, 1fr); */
   grid-template-rows: repeat(2, minmax(500px, 1fr));
@@ -66,7 +68,8 @@ header {
   border-radius: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-
+  justify-content: center;
+  align-items: center;
   position: relative; /* Add this */
   background-repeat: no-repeat;
   background-color: #000;
@@ -266,6 +269,8 @@ i {
   gap: 20px;
   grid-template-rows: repeat(4, 600px);
   background-repeat: no-repeat;
+  justify-content: center;
+  align-items: center;
 }
 .layout {
   color: #fff;
@@ -316,6 +321,8 @@ i {
   grid-column: 2 / 4;
 }
 .footer {
+  justify-content: center;
+  align-items: center;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
