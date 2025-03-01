@@ -456,4 +456,12 @@ i {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(12, minmax(600px, 1fr));
   }
+  .link-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+  }
 }
