@@ -243,6 +243,7 @@ i {
   gap: 40px;
   justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
 }
 .link-container a:link,
 .link-container a:visited {
