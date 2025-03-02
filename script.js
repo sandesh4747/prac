@@ -60,6 +60,7 @@ btnHold.addEventListener("click", function () {
       score0.textContent = scores1;
       if (scores1 >= 20) {
         document.querySelector(".container-1").style.backgroundColor = "green";
+        // document.querySelector(".win-loss").textContent = "Player 1 wins!";
         playing = false;
         return;
       }
@@ -69,6 +70,7 @@ btnHold.addEventListener("click", function () {
       score1.textContent = scores2;
       if (scores2 >= 20) {
         document.querySelector(".container-2").style.backgroundColor = "green";
+        // document.querySelector(".win-loss").textContent = "Player 2 wins!";
         playing = false;
         return;
       }
@@ -106,7 +108,7 @@ btnNew.addEventListener("click", function () {
   document.querySelector(".container-2").style.backgroundColor = "#802c0d";
 
   image.style.display = "none";
-
+  document.querySelector(".win-loss").textContent = "";
   document.getElementById(`current-score-0`).textContent = 0;
   document.getElementById(`current-score-1`).textContent = 0;
 });

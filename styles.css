@@ -128,3 +128,7 @@ main {
 .active-player {
   background-color: #ecc3c3;
 }
+
+.win-loss {
+  font-size: 30px;
+}
