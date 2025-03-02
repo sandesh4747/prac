@@ -56,3 +56,9 @@ console.log(Math.pow(2, 4));
 console.log(Math.max(22, 45, 34, 66));
 console.log(Math.min(22, 55, 11, 66, 77));
 console.log(Math.trunc(Math.random() * 9) + 1);
+console.log(Math.abs(-10));
+console.log(Math.sin(Math.PI / 4), Math.cos(Math.PI / 4));
+
+const radius = 7;
+const circumference = 2 * Math.PI * radius;
+console.log(circumference);
