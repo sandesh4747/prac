@@ -1,5 +1,5 @@
 //primitive types String number boolean undifined null
-
+/*
 const number1 = -900;
 const m = 900;
 
@@ -61,4 +61,112 @@ console.log(Math.sin(Math.PI / 4), Math.cos(Math.PI / 4));
 
 const radius = 7;
 const circumference = 2 * Math.PI * radius;
-console.log(circumference);
+console.log(circumference); */
+
+// const isLogin = null;
+// const some = false;
+// console.log(some);
+// let b = 190;
+
+// if (b % 2 == 0) {
+//   console.log("even");
+// } else {
+//   console.log("odd");
+// }
+
+// const cal = b % 2 == 0 ? `even` : `odd`;
+// console.log(cal);
+
+// let a = 100;
+// const age = 30;
+// const calc = age < 20 ? `junior` : age > 50 ? `senior` : `regular`;
+// console.log(calc);
+/*
+const list = [1, 2, 3, 4, 5, 6, 87];
+let max = list[3];
+for (let i of list) {
+  if (i > max) {
+    max = i;
+  }
+}
+console.log(`Max number:${max}`);
+*/
+
+/*
+const medal = 1;
+
+switch (medal) {
+  case 1:
+    console.log("you got gold medal");
+    break;
+  case 2:
+    console.log("you got silver medal");
+    break;
+  case 3:
+    console.log(" you got bronze medal");
+    break;
+  default:
+    console.log("please try again");
+}
+    */
+
+// let i = 0;
+// while (i < 20) {
+//   i++;
+//   if (i % 2 !== 0) {
+//     console.log(`${i}`);
+//   }
+// }
+// i = 0;
+// do {
+//   i++;
+//   console.log(`Hello world ${i}`);
+// } while (1 < i);
+
+/*
+let sumEven = 0;
+let sumOdd = 0;
+for (let i = 0; i <= 20; i++) {
+  if (i % 2 === 0) {
+    sumEven += i;
+  } else if (i % 2 !== 0) {
+    sumOdd += i;
+  }
+}
+console.log(sumOdd);
+console.log(sumEven);
+
+
+
+for (let i = 1; i <= 15; i++) {
+  if (i % 3 === 0 && i % 5 === 0) {
+    console.log("fizz buzz");
+  } else if (i % 3 === 0) {
+    console.log("fizz");
+  } else if (i % 5 === 0) {
+    console.log("buzz");
+  } else {
+    console.log(`${i}`);
+  }
+} */
+
+/*
+for (let i = 1; i <= 20; i++) {
+  if (i >= 5 && i <= 10) {
+    continue;
+  }
+  console.log(i);
+}*/
+
+// const numbers = [11, 22, 33, 44, 55, 66, 77];
+// for (let i in numbers) {
+//   console.log(`${i}`);
+// }
+const numbers = [11, 100, 33, 44, 55, 88, 77];
+let max = numbers[2];
+for (let i of numbers) {
+  if (i > max) {
+    max = i;
+  }
+}
+console.log(max);
