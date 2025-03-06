@@ -162,6 +162,8 @@ for (let i = 1; i <= 20; i++) {
 // for (let i in numbers) {
 //   console.log(`${i}`);
 // }
+
+/*
 const numbers = [11, 100, 33, 44, 55, 88, 77];
 let max = numbers[2];
 for (let i of numbers) {
@@ -170,3 +172,46 @@ for (let i of numbers) {
   }
 }
 console.log(max);
+*/
+
+const numbers = [11, 100, 33, 44, 99, 88, 0];
+const person = ["Ram", "Shyam", "Hari", "Sita"];
+// numbers.push(12, 12, 12, 21);
+// numbers.pop();
+// numbers.shift();
+// numbers.unshift(12);
+const isThere = numbers.includes(11);
+// console.log(isThere);
+// console.log(numbers);
+
+// const join = numbers.concat(6, 7, 8, 11);
+// console.log(join);
+
+// const c = numbers.slice(3, 5);
+// numbers.splice(3, 3);
+
+// console.log(person.join("     "));
+
+//forEach, map, find, filter, reduce
+
+// call back function
+const sum = function (a, b) {
+  const sum1 = a + b;
+  return sum1;
+};
+const sum1 = sum(2, 4);
+console.log(sum1);
+
+const multiply = function (a, b) {
+  const mul = a * b;
+  return mul;
+};
+const mul = multiply(2, 4);
+console.log(mul);
+
+const divide = function (a, b) {
+  const d = a / b;
+  return d;
+};
+const d = divide(2, 4);
+console.log(d);
