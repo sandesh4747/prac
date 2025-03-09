@@ -1,3 +1,4 @@
+/*
 // Check if a number is even or odd
 
 const num = 99;
@@ -133,3 +134,78 @@ for (let i = 1; i <= 15; i++) {
     console.log(`${i}`);
   }
 }
+
+*/
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+//---map-------------
+// 💪 Question 1: Convert temperatures from Celsius to Fahrenheit
+//👉 Formula: (C * 9/5) + 32 = F
+const celsius = [273, 44, 55, 77];
+
+const fahrenheit = celsius.map((temp) => (temp * 9) / 5 + 32);
+console.log(fahrenheit);
+
+// 💪 Question 2: Extract first names from an array of objects
+
+const nameObject = [
+  { name: "Alice Johnson", age: 25 },
+  { name: "Bob Smith", age: 30 },
+  { name: "Charlie Brown", age: 35 },
+];
+
+const firstName = nameObject.map((first) => first.name.split(" ")[0]);
+
+console.log(firstName);
+
+// Question 3: Square each number in the array
+const num = [2, 3, 4, 5, 6, 7];
+const sqNum = num.map((sqNum) => sqNum ** 2);
+console.log(sqNum);
+
+//------filter---------
+// Question 4: Get only positive numbers from the array
+
+const numbers = [-12, -14, -66, 55, 6, 7, 8, 9, 7, -8];
+
+const positive = numbers.filter((positive) => positive > 0);
+
+console.log(positive);
+
+// 💪 Question 5: Get users older than 30
+const users = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 35 },
+  { name: "Charlie", age: 40 },
+];
+const olderThan30 = users.filter((older) => older.age > 30);
+console.log(olderThan30);
+
+// 💪 Question 6: Filter out even numbers
+
+const num1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const even = num1.filter((even) => even % 2 === 0);
+console.log(even);
+
+//-------reduce---------
+// 💪 Question 7: Find the sum of all numbers in an array
+
+const num2 = [10, 20, 30, 40, 50, 60];
+const sum = num2.reduce((acc, curr) => acc + curr);
+console.log(sum);
+
+// 💪 Question 8: Find the highest number in an array
+const num3 = [5, 12, 8, 130, 44];
+
+const highest = num3.reduce((acc, curr) => (acc > curr ? acc : curr), num3[0]);
+console.log(highest);
+
+// 💪 Question 9: Count how many times each letter appears in a word
+const word = "javascript";
+
+const letterCount = word.split("").reduce((acc, curr) => {
+  acc[curr] = (acc[curr] || 0) + 1; // If letter exists, increment count; otherwise, set to 1
+  return acc;
+}, {});
+
+console.log(letterCount);

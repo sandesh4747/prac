@@ -193,8 +193,44 @@ const isThere = numbers.includes(11);
 // console.log(person.join("     "));
 
 //forEach, map, find, filter, reduce
+person.forEach(function (el, index, arr) {
+  console.log(` Hello ${el.toUpperCase()}`);
+});
 
-// call back function
+let sum = 0;
+numbers.forEach(function (el, index, arr) {
+  // console.log(index);
+  // console.log(arr);
+  sum += el;
+});
+console.log(`Total:${sum}`);
+
+const capital = person.map(function (a, b) {
+  return a;
+});
+console.log(capital[2].toUpperCase());
+
+const num = numbers.find(function (a) {
+  return a > 80;
+});
+console.log(num);
+
+const even = numbers.filter(function (a) {
+  if (a % 2 === 0) {
+    return a;
+  }
+});
+console.log(even);
+const odd = numbers.filter(function (a) {
+  if (a % 2 !== 0) {
+    return a;
+  }
+});
+console.log(odd);
+
+// person.reduce(function () {});
+
+/*
 const sum = function (a, b) {
   const sum1 = a + b;
   return sum1;
@@ -214,4 +250,19 @@ const divide = function (a, b) {
   return d;
 };
 const d = divide(2, 4);
-console.log(d);
+console.log(d);*/
+
+// call back function
+// const parentFunc = function (event, callback) {
+//   if (event === "click") {
+//     callback();
+//   }
+// };
+
+// const greet = function () {
+//   console.log("hello gooddd morning");
+// };
+
+// parentFunc("click", function () {
+//   console.log("hello good morning");
+// });
