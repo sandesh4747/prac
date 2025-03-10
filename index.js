@@ -173,14 +173,14 @@ for (let i of numbers) {
 }
 console.log(max);
 */
-
+/*
 const numbers = [11, 100, 33, 44, 99, 88, 0];
 const person = ["Ram", "Shyam", "Hari", "Sita"];
 // numbers.push(12, 12, 12, 21);
 // numbers.pop();
 // numbers.shift();
 // numbers.unshift(12);
-const isThere = numbers.includes(11);
+const isThere = numbers.includes(11);*/
 // console.log(isThere);
 // console.log(numbers);
 
@@ -193,6 +193,7 @@ const isThere = numbers.includes(11);
 // console.log(person.join("     "));
 
 //forEach, map, find, filter, reduce
+/*
 person.forEach(function (el, index, arr) {
   console.log(` Hello ${el.toUpperCase()}`);
 });
@@ -227,6 +228,7 @@ const odd = numbers.filter(function (a) {
   }
 });
 console.log(odd);
+*/
 
 // person.reduce(function () {});
 
@@ -266,3 +268,215 @@ console.log(d);*/
 // parentFunc("click", function () {
 //   console.log("hello good morning");
 // });
+
+/*
+const pers = "Shyam";
+const numbers = [11, 22, 33, 44, 55];
+numbers[0] = 99;
+console.log(numbers);
+
+const person = {
+  name: "Ram",
+  age: 33,
+};
+
+person.name = "Hari";
+console.log(person);
+
+*/
+// const person = {
+//   first: "ram",
+//   last: "sharma",
+//   addres: "new road",
+//   age: 90,
+//   getFullName: function () {
+//     console.log(this.first + this.last);
+//   },
+// };
+// person.getFullName();
+/*
+function Car(name, speed) {
+  this.name = name;
+  this.speed = speed;
+}
+const car1 = new Car("BMW", 200);
+const car2 = new Car("LAMBO", 300);
+console.log(car1);
+console.log(car2);
+
+function Bank(name, establish) {
+  this.name = name;
+  this.establish = establish;
+}
+const bank1 = new Bank("xyz bank", 2002);
+const bank2 = new Bank("abc bank", 1990);
+console.log(bank1);
+console.log(bank2);
+
+function User(name, age) {
+  this.name = name;
+  this.age = age;
+}
+const user1 = new User("ram", 90);
+const user2 = new User("shyam", 100);
+
+console.log(user1);
+console.log(user2);*/
+// const add = (a, b) => {
+//   if (typeof a !== "number" || typeof b !== "number") {
+//     return "Enter a number";
+//   } else {
+//     return a + b;
+//   }
+// };
+// const sum = add(2, "2");
+// console.log(sum);
+
+const addTwoNumber = (a, b) => {
+  if (typeof a === "number" && typeof b === "number") {
+    return a + b;
+  } else {
+    return " please provide valid number";
+  }
+};
+const some = addTwoNumber(2);
+console.log(some);
+
+// function User(name, age) {
+//   this.name = name;
+//   this.age = age;
+// }
+// const user11 = new User("Ram", 90);
+// const user12 = new User("Shyam", 90);
+// console.log(user11);
+// console.log(user12);
+
+// function Userr(name, age) {
+//   this.name = name;
+//   this.age;
+// }
+
+// const ueser1 = new Userr("ram", 90);
+// const ueser2 = new Userr("Sita", 60);
+// console.log(ueser1);
+
+// const user1 = {
+//   name: "Ram",
+//   age: 22,
+// };
+// const user2 = {
+//   name: "Hari",
+//   age: 40,
+// };
+// const user3 = {
+//   name: "John",
+//   age: 11,
+// };
+// const user4 = {
+//   name: "Sita",
+//   age: 33,
+// };
+
+//make a function that takes array of numbers as argument and  it gives  sum of  that numbers;
+
+const num2 = [10, 20, 30, 40, 50, 60];
+const sum = num2.reduce((acc, curr) => acc + curr);
+console.log(sum);
+
+/*
+
+
+
+//primitive types String number boolean undefined null
+// reference types Array , Object, Function
+
+//primitive types String number boolean undefined null
+// reference types Array , Object, Function
+
+/*
+class User {
+  constructor(personName, age) {
+    this.personName = personName;
+    this.age = age;
+  }
+  //methods
+  reading() {
+    console.log(`${this.personName} is reading a book`);
+  }
+  sleeping() {
+    console.log(`${this.personName} is sleeping`);
+  }
+
+  get someName() {
+    return "hello jee";
+  }
+
+  set setVal(val) {
+    this.personName = val;
+  }
+}
+
+class A extends User {
+  constructor(personName, age) {
+    super(personName, age);
+  }
+}
+const userA = new A("rita", 90);
+
+userA.sleeping();
+
+const user1 = new User("shyam", 190);
+user1.setVal = "rita";
+console.log(user1.personName);
+*/
+
+const numbers = [11, 22, 33];
+const [a, b, c, d] = numbers;
+console.log(a, b, c, d);
+
+const persons = {
+  name: "ram",
+  age: 90,
+  address: "new road",
+  habits: ["sing", "dance", "code"],
+  some: {
+    add: {
+      gio: [
+        {
+          fi: [99],
+        },
+      ],
+    },
+  },
+};
+// const { name, age, address } = persons;
+// console.log(name, age, address);
+
+const {
+  name,
+  age,
+  address,
+  habits: [x, y],
+  some: {
+    add: {
+      gio: [
+        {
+          fi: [w],
+        },
+      ],
+    },
+  },
+} = persons;
+console.log(name, age, address, x, y, w);
+
+const posts = [
+  { id: 1, name: "ram", age: 90 },
+  { id: 2, name: "shyam", age: 70 },
+  { id: 3, name: "rita", age: 60 },
+  { id: 4, name: "hari", age: 50 },
+];
+
+const p = posts.map(({ name, id, age }) => {
+  return name;
+});
+console.log(p);
