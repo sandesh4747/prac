@@ -1,0 +1,83 @@
+// import { movieData } from "./components/data/data";
+
+// export default function App() {
+//   return (
+//     <main className="p-8 bg-gray-50 ">
+//       <List />
+//     </main>
+//   );
+// }
+
+// function List() {
+//   const movies = movieData;
+//   return (
+//     <div>
+//       {movies.map((movie) => (
+//         <ListName movieOb={movie} key={movie.Title} />
+//       ))}
+//     </div>
+//   );
+// }
+
+// function ListName(props) {
+//   return (
+//     <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row">
+//       <img
+//         className="w-full md:w-1/3  object-cover"
+//         src={props.movieOb.Poster}
+//         alt={props.movieOb.Title}
+//       />
+//       <div className="p-6 bg-gradient-to-br from-teal-100 via-blue-200 to-indigo-300 ">
+//         <h2 className="text-2xl font-bold mb-4 text-indigo-800">
+//           {props.movieOb.Title}
+//         </h2>
+//         <div className="space-y-3 text-gray-800 ">
+//           <p className="text-lg">
+//             <span className="font-semibold">Year:</span> {props.movieOb.Year}
+//           </p>
+//           <p className="text-lg">
+//             <span className="font-semibold">Rated:</span> {props.movieOb.Rated}
+//           </p>
+//           <p className="text-lg">
+//             <span className="font-semibold">Released:</span>
+//             {props.movieOb.Released}
+//           </p>
+//           <p className="text-lg">
+//             <span className="font-semibold">Runtime:</span>
+//             {props.movieOb.Runtime}
+//           </p>
+//           <p className="text-lg">
+//             <span className="font-semibold">Genre:</span> {props.movieOb.Genre}
+//           </p>
+//           <p className="text-lg">
+//             <span className="font-semibold">Director:</span>
+//             {props.movieOb.Director}
+//           </p>
+//           <p className="text-lg">
+//             <span className="font-semibold">Writer:</span>
+//             {props.movieOb.Writer}
+//           </p>
+//           <p className="text-lg">
+//             <span className="font-semibold">Actors:</span>
+//             {props.movieOb.Actors}
+//           </p>
+//           <p className="text-lg">
+//             <span className="font-semibold">Plot:</span> {props.movieOb.Plot}
+//           </p>
+//           <p className="text-lg">
+//             <span className="font-semibold">Language:</span>
+//             {props.movieOb.Language}
+//           </p>
+//           <p className="text-lg">
+//             <span className="font-semibold">Country:</span>
+//             {props.movieOb.Country}
+//           </p>
+//           <p className="text-lg">
+//             <span className="font-semibold">Awards:</span>
+//             {props.movieOb.Awards}
+//           </p>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
