@@ -8,6 +8,7 @@ import Page1 from "./pages/home/nested-pages/Page1";
 import Page2 from "./pages/home/nested-pages/Page2";
 import RootLayout from "./components/RootLayout";
 import NotFound from "./pages/NotFound";
+import Footer from "./components/Footer";
 
 //js in component/---props/--routing
 //how react render component/ hooks
@@ -29,6 +30,10 @@ export default function App() {
             {
               path: "page-2",
               element: <Page2 />,
+            },
+            {
+              path: "footer",
+              element: <Footer />,
             },
           ],
         },

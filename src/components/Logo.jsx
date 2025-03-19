@@ -8,6 +8,7 @@ import {
   faSwift,
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
+import { Outlet } from "react-router";
 
 export default function Logo() {
   return (
@@ -58,74 +59,4 @@ export default function Logo() {
       </div>
     </div>
   );
-}
-{
-  /* <DotLottieReact
-          className="justify-center"
-          src="https://lottie.host/1429d0ed-dbcb-4ef3-8b84-59961473485e/5nV18NCh1K.lottie"
-          loop
-          autoplay
-          style={{ width: "200px", height: "200px" }}
-          renderersettings={{
-            preserveAspectRatio: "xMidYMid slice", 
-          }}
-        /> */
-}
-
-{
-  /* <DotLottieReact
-          className="justify-center"
-          src="https://lottie.host/3600fe65-ff6f-4639-acfe-5f4b7c321c31/aSYvS8T1DB.lottie"
-          loop
-          autoplay
-          style={{ width: "200px", height: "200px" }}
-          renderersettings={{
-            preserveAspectRatio: "xMidYMid slice", 
-          }}
-        /> */
-}
-{
-  /* <DotLottieReact
-          className="justify-center"
-          src="https://lottie.host/ba6159c9-27b3-4b40-8d2b-bc693ba9a351/PY0YQcPhqg.lottie"
-          loop
-          autoplay
-          style={{ width: "200px", height: "200px" }}
-          renderersettings={{
-            preserveAspectRatio: "xMidYMid slice", // Prevents distortion
-          }}
-        /> */
-}
-{
-  /*         
-        <DotLottieReact
-          className="justify-center"
-          src="https://lottie.host/669bccf9-800b-4abd-83d8-74f452065cd0/fXtdcgpIBq.lottie"
-          loop
-          autoplay
-          style={{ width: "200px", height: "200px" }}
-          renderersettings={{
-            preserveAspectRatio: "xMidYMid slice", // Prevents distortion
-          }}
-        />
-        <DotLottieReact
-          className="justify-center"
-          src="https://lottie.host/ef1f56ca-7fca-4b15-93d9-07116d59a60b/0I7PfMbbVh.lottie"
-          loop
-          autoplay
-          style={{ width: "200px", height: "200px" }}
-          renderersettings={{
-            preserveAspectRatio: "xMidYMid slice", // Prevents distortion
-          }}
-        />
-        <DotLottieReact
-          className="justify-center"
-          src="https://lottie.host/b49f70b3-2a91-430c-93b4-2e2961c798d3/0ZwtJlYlhC.lottie"
-          loop
-          autoplay
-          style={{ width: "200px", height: "200px" }}
-          renderersettings={{
-            preserveAspectRatio: "xMidYMid slice", // Prevents distortion
-          }}
-        /> */
 }
