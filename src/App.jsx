@@ -31,10 +31,6 @@ export default function App() {
               path: "page-2",
               element: <Page2 />,
             },
-            {
-              path: "footer",
-              element: <Footer />,
-            },
           ],
         },
         {

@@ -13,7 +13,7 @@ export default function Home() {
       <Logo />
       <Info />
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

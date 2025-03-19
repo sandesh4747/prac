@@ -6,9 +6,9 @@ export default function Footer() {
       style={{
         clipPath: "polygon(0 50%, 100% 0, 100% 100%, 50% 100%, 0 100%)",
       }}
-      className=" relative h-[300px]  flex flex-col items-center justify-center text-white  bg-black"
+      className=" relative h-[250px]  flex flex-col items-center justify-center text-white  bg-black"
     >
-      <div className="h-[100% ] absolute  top-[60%]">
+      <div className="h-[100% ] absolute  top-[60%] text-center">
         <p>Develop By</p>
         <p>Some One Anonymous</p>
       </div>
