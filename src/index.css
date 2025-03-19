@@ -33,3 +33,19 @@ span {
 .animate-slide-in-left {
   animation: slideInLeft 0.5s ease-out forwards;
 }
+
+@keyframes disappearAppear {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-disappear-appear {
+  animation: disappearAppear 0.5s ease-in-out;
+}
