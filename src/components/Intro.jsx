@@ -7,7 +7,7 @@ export default function Intro() {
       {/* Animation Section */}
       <div className="flex  justify-center">
         <DotLottieReact
-          src="https://lottie.host/2fdaf87a-da44-4718-a496-1e6287baedef/SWSFkXpBjt.lottie"
+          src="https://lottie.host/9f3e5adf-f8e3-4da4-acad-e3997abfa3d6/YKLc6wEjkT.lottie"
           loop
           autoplay
           style={{ width: "400px", height: "400px" }}

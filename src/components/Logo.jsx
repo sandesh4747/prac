@@ -13,47 +13,46 @@ import { Outlet } from "react-router";
 export default function Logo() {
   return (
     <div className="text-center mb-[30px]">
-      <h1 className="text-4xl font-semibold pb-2">Technologies I use</h1>
+      <h1 className="text-4xl font-semibold pb-4">Technologies I use</h1>
       <div className="grid grid-cols-[1fr_1fr_1fr_1fr] justify-center items-center space-y-8 ">
-        <div>
+        <div className="transition-all duration-300 hover:text-red-500 hover:scale-110">
           <FontAwesomeIcon
-            className="r"
             icon={faReact}
-            style={{ width: "200px", height: "200px" }}
+            style={{ width: "150px", height: "150px" }}
           />
         </div>
         <div>
           <FontAwesomeIcon
             icon={faJava}
-            style={{ width: "200px", height: "200px" }}
+            style={{ width: "150px", height: "150px" }}
           />
         </div>
 
         <div>
           <FontAwesomeIcon
             icon={faVuejs}
-            style={{ width: "200px", height: "200px" }}
+            style={{ width: "150px", height: "150px" }}
           />
         </div>
 
         <div className="animate-bounce">
           <FontAwesomeIcon
             icon={faCss3}
-            style={{ width: "200px", height: "200px" }}
+            style={{ width: "150px", height: "150px" }}
           />
         </div>
 
         <div>
           <FontAwesomeIcon
             icon={faPython}
-            style={{ width: "200px", height: "200px" }}
+            style={{ width: "150px", height: "150px" }}
           />
         </div>
 
         <div>
           <FontAwesomeIcon
             icon={faSwift}
-            style={{ width: "200px", height: "200px" }}
+            style={{ width: "150px", height: "150px" }}
           />
         </div>
       </div>
