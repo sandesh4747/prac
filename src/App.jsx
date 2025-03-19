@@ -1,30 +1,52 @@
 import React from "react";
-import "./index.css";
-import PostCard from "./components/PostCard";
-import PostCard2 from "./components/PostCard2";
-import { cards } from "./components/data/data";
+
+import { createBrowserRouter, RouterProvider } from "react-router";
+import Home from "./pages/home/Home";
+import About from "./pages/about/About";
+import Contact from "./pages/contact/Contact";
+import Page1 from "./pages/home/nested-pages/Page1";
+import Page2 from "./pages/home/nested-pages/Page2";
+import RootLayout from "./components/RootLayout";
+import NotFound from "./pages/NotFound";
+
+//js in component/---props/--routing
+//how react render component/ hooks
 
 export default function App() {
-  // undefined ,null, 0,'',false
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <RootLayout />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+          children: [
+            {
+              index: true,
+              element: <Page1 />,
+            },
+            {
+              path: "page-2",
+              element: <Page2 />,
+            },
+          ],
+        },
+        {
+          path: "about",
+          element: <About />,
+        },
+        {
+          path: "contact",
+          element: <Contact />,
+        },
+      ],
+    },
+    {
+      path: "*",
+      element: <NotFound />,
+    },
+  ]);
 
-  return (
-    // <div>
-    //   {posts.map((post) => {
-    //     return (
-    //       <PostCard
-    //         key={post.id}
-    //         post={post}
-    //         // title={post.title}
-    //         // detail={post.detail}
-    //         // imageUrl={post.imageUrl}
-    //       />
-    //     );
-    //   })}
-    // </div>
-    <div className="flex  flex-wrap gap-10 m-8 p-4">
-      {cards.map((card) => {
-        return <PostCard2 key={card.id} card={card} />;
-      })}
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
