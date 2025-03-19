@@ -18,12 +18,12 @@ export default function Intro() {
       </div>
 
       {/* Text Section */}
-      <div className="space-y-2">
+      <div className="space-y-2 animate-slide-in-right">
         <h1 className="font-bold text-4xl">Hi, I am John</h1>
         <p className="text-pink-600 italic text-[18px]">
           Some Dev, Freelancer, Rounder
         </p>
-        <p className="text-[18px]">
+        <p className="text-[18px] ">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ut
           voluptas numquam officiis beatae! Harum debitis mollitia ad sit autem!
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro atque,
