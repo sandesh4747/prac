@@ -14,7 +14,7 @@ export default function Logo() {
   return (
     <div className="text-center mb-[30px]">
       <h1 className="text-4xl font-semibold pb-2">Technologies I use</h1>
-      <div className="grid grid-cols-[1fr_1fr_1fr_1fr] justify-center items-center">
+      <div className="grid grid-cols-[1fr_1fr_1fr_1fr] justify-center items-center space-y-8 ">
         <div>
           <FontAwesomeIcon
             className="r"
