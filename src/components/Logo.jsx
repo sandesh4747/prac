@@ -12,7 +12,7 @@ import { Outlet } from "react-router";
 
 export default function Logo() {
   return (
-    <div className="text-center mb-[30px]">
+    <div className="text-center mb-[30px] animate-slide-in-right">
       <h1 className="text-4xl font-semibold pb-4 animate-slide-in-right">
         Technologies I use
       </h1>

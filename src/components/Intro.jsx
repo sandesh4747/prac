@@ -5,7 +5,7 @@ export default function Intro() {
   return (
     <div className="grid grid-cols-[1fr_1.5fr] items-center p-[2%] font-sans">
       {/* Animation Section */}
-      <div className="flex  justify-center">
+      <div className="flex  justify-center animate-slide-in-left">
         <DotLottieReact
           src="https://lottie.host/9f3e5adf-f8e3-4da4-acad-e3997abfa3d6/YKLc6wEjkT.lottie"
           loop
