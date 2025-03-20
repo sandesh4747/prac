@@ -5,14 +5,16 @@ import Intro from "../../components/Intro";
 import Logo from "../../components/Logo";
 import Info from "../../components/Info";
 import Footer from "../../components/Footer";
+import Tech from "./Tech";
 
 export default function Home() {
   return (
     <div>
+      <div className="text-blueee">sldkfjalskhfkhs</div>
       <Intro />
-      <Logo />
+      <Tech />
+      {/* <Logo /> */}
       <Info />
-
       {/* <Footer /> */}
     </div>
   );
