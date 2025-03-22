@@ -1,27 +1,22 @@
 import React from "react";
-import Header from "../../components/Header";
-import { NavLink, Outlet } from "react-router";
-import Intro from "../../components/Intro";
-import Logo from "../../components/Logo";
-import Info from "../../components/Info";
-import Footer from "../../components/Footer";
-import Tech from "./Tech";
+import Hero from "./Hero";
+import ProfileCard from "./ProfileCard";
+import Deployment from "./Deployment";
+import Footer from "./Footer";
+import BlockQuote from "./BlockQuote";
+import Resources from "./Resources";
+import Support from "./Support";
 
 export default function Home() {
   return (
-    <div>
-      <div className="text-blueee pl-4 ">
-        <h1 className="text-primary text-headLarge">Hello World</h1>
-        <div className="h-[200px] w-[200px] border-2 animate-myAni">
-          <h1 className="text-purple-800">Hello</h1>
-          <h2>sahflkasfkla</h2>
-        </div>
-      </div>
-      <Intro />
-      <Tech />
-      {/* <Logo /> */}
-      <Info />
-      {/* <Footer /> */}
+    <div className="space-y-8">
+      <Hero />
+      <ProfileCard />
+      <Deployment />
+      <BlockQuote />
+      <Resources />
+      <Support />
+      <Footer />
     </div>
   );
 }
