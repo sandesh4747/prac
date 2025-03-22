@@ -1,24 +1,45 @@
 @import "tailwindcss";
 
-span {
-  font-size: 18px;
-  font-weight: 600;
-}
 @theme {
-  --color-blueee: red;
+  /* --color-*: initial; */
+  --color-primary: red;
+  --color-buttonColor: green;
+
+  --text-headLarge: 50px;
+  /* --text-xl: 50px; */
+
+  --animate-myAni: ani 2s ease-in infinite;
+  --my-grid: repeat(auto-fit, minmax(250px, 1fr));
+  /* grid grid-cols-(--my-grid) use this in className */
+  --breakpoint-sm: 500px;
+  @keyframes ani {
+    10% {
+      background-color: red;
+    }
+
+    50% {
+      background-color: purple;
+    }
+
+    100% {
+      background-color: brown;
+    }
+  }
 }
 
-@keyframes slideInRight {
-  from {
-    transform: translateX(30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
+/* base layer , component layer utitlities */
+
+@layer base {
+  h2 {
+    @apply text-2xl font-bold;
   }
 }
 
+.cls {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+/////////////////////////////////////////////////////////////////////////////
+/* 
 .animate-slide-in-right {
   animation: slideInRight 0.5s ease-out forwards;
 }
@@ -51,4 +72,4 @@ span {
 
 .animate-disappear-appear {
   animation: disappearAppear 0.5s ease-in-out;
-}
+} */

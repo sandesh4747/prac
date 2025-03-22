@@ -13,11 +13,14 @@ import {
 
 export default function Tech() {
   return (
-    <div className=" grid grid-cols-4 justify-items-center ">
-      <DiReact size={200} />
+    <div className=" grid grid-cols-[repeat(3,1fr)] justify-items-center">
+      <DiReact
+        size={200}
+        className="hover:text-red-500 hover:scale-125 animation duration-200"
+      />
       <DiPython size={200} />
       <DiJavascript size={200} />
-      <DiNodejs size={200} />
+      <DiNodejs size={200} className="animate-bounce" />
       <DiDart size={200} />
       <DiJava size={200} />
       <DiGithub size={200} />

@@ -10,7 +10,13 @@ import Tech from "./Tech";
 export default function Home() {
   return (
     <div>
-      <div className="text-blueee">sldkfjalskhfkhs</div>
+      <div className="text-blueee pl-4 ">
+        <h1 className="text-primary text-headLarge">Hello World</h1>
+        <div className="h-[200px] w-[200px] border-2 animate-myAni">
+          <h1 className="text-purple-800">Hello</h1>
+          <h2>sahflkasfkla</h2>
+        </div>
+      </div>
       <Intro />
       <Tech />
       {/* <Logo /> */}
