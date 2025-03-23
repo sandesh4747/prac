@@ -8,7 +8,7 @@ export default function Resources() {
       title: "Boost your conversion rate",
       text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt eos possimus, unde eius nam provident! Tempora placeat sunt doloremque similique.",
       avatar:
-        "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fHww",
+        "https://plus.unsplash.com/premium_photo-1672239496412-ab605befa53f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bWFsZXxlbnwwfHwwfHx8MA%3D%3D",
       name: "Roel Aufderehar",
       date: "Mar 16, 2020. 6 min read",
     },
