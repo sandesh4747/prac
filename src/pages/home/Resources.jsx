@@ -30,16 +30,18 @@ export default function Resources() {
       date: "Feb 12, 2020. 6 min read",
     },
   ];
+
   return (
     <div className="p-7">
       <CardList resources={resources} />
     </div>
   );
 }
+
 function CardList({ resources }) {
   return (
     <div>
-      <div className="max-w-3xl mx-auto  text-center space-y-2 pb-7">
+      <div className="max-w-3xl mx-auto text-center space-y-2 pb-7">
         <p className="text-cyan-600">LEARN</p>
         <h1 className="text-3xl font-semibold">Helpful Resources</h1>
         <p className="pt-2 text-gray-400">
@@ -49,7 +51,8 @@ function CardList({ resources }) {
           Nesciunt doloremque repudiandae eos nam!
         </p>
       </div>
-      <div className="grid grid-cols-3 gap-7">
+
+      <div className="grid grid-cols-3 gap-7 max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3">
         {resources.map((resource, i) => (
           <div
             className="shadow-lg rounded-[12px] hover:shadow-xl hover:scale-105 transition-all duration-300 flex flex-col"
@@ -63,8 +66,8 @@ function CardList({ resources }) {
               />
             </div>
 
-            <div className="p-7 flex flex-col flex-grow gap-5 ">
-              <div className="space-y-3  ">
+            <div className="p-7 flex flex-col flex-grow gap-5">
+              <div className="space-y-3">
                 <div className="text-cyan-400">{resource.type}</div>
                 <div className="text-black text-2xl font-semibold">
                   {resource.title}

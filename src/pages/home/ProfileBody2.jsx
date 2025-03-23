@@ -1,5 +1,5 @@
 import React from "react";
-import { FaRegStar, FaStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import { GiRamProfile } from "react-icons/gi";
 import { GoChevronDown } from "react-icons/go";
 import { MdMenuOpen } from "react-icons/md";
@@ -43,16 +43,17 @@ export default function ProfileBody2() {
       repoLink: "/debbielewis/heropatterns",
     },
   ];
+
   return (
-    <div className="px-8 border-gray-300">
-      <div className="flex justify-between p-3  border-x border-b border-gray-300">
+    <div className="px-4 max-md:px-0 border-gray-300">
+      <div className="flex justify-between p-3 border-x border-b border-gray-300">
         <p className="font-semibold">Projects</p>
         <div>
-          <a className=" inline-flex items-center py-2 px-4 gap-2 border border-gray-300 rounded-[4px]  cursor-pointer">
-            <MdMenuOpen className="h-[24px] w-[24px] text-gray-400 hover:bg-gray-100" />
+          <button className="inline-flex items-center py-2 px-4 gap-2 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100">
+            <MdMenuOpen className="h-6 w-6 text-gray-400" />
             Sort
             <GoChevronDown className="text-gray-400" />
-          </a>
+          </button>
         </div>
       </div>
       {projects.map((project, i) => (
@@ -63,7 +64,6 @@ export default function ProfileBody2() {
           lastDeploy={project.lastDeploy}
           location={project.location}
           repoLink={project.repoLink}
-          siteLink={project.siteLink}
         />
       ))}
     </div>
@@ -72,10 +72,11 @@ export default function ProfileBody2() {
 
 function Profile({ projectName, framework, lastDeploy, location, repoLink }) {
   return (
-    <div className="border-t border-gray-300 border-x  ">
-      <div className="flex justify-between p-3">
-        <div className="space-y-2  font-semibold">
-          <h2 className="flex items-center gap-2">
+    <div className="border-t border-gray-300 border-x">
+      <div className="flex flex-col md:flex-row justify-between p-3 gap-3 md:gap-0">
+        {/* Left Section */}
+        <div className="space-y-2 flex-2">
+          <h2 className="flex  items-center gap-2 font-semibold">
             <RiRadioButtonLine className="text-green-500" /> {projectName}
           </h2>
           <a
@@ -85,17 +86,18 @@ function Profile({ projectName, framework, lastDeploy, location, repoLink }) {
             <GiRamProfile /> {repoLink}
           </a>
         </div>
-        <div className="space-y-2">
+
+        {/* Right Section */}
+        <div className="space-y-2 flex-1">
           <a
-            className="text-gray-400 flex gap-2  items-center  hover:text-cyan-500"
-            href="siteLink "
+            className="text-gray-400 flex gap-2 items-center hover:text-cyan-500"
+            href="siteLink"
           >
             Visit site <FaStar className="text-yellow-400" />
           </a>
-          <div className="flex text-gray-400 items-center ">
-            <p>{framework} </p>
+          <div className="text-gray-400">
             <p>
-              . Last deploy . {lastDeploy} . {location}
+              {framework} . Last deploy . {lastDeploy} . {location}
             </p>
           </div>
         </div>

@@ -38,20 +38,21 @@ export default function Deployment() {
       text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, soluta!",
     },
   ];
+
   return (
     <div className="pt-[50px]">
       <div className="max-w-3xl mx-auto px-4 text-center space-y-2">
         <p className="text-cyan-600">DEPLOY FASTER</p>
-        <h1 className="text-3xl font-bold">
+        <h1 className="text-3xl font-bold max-sm:text-2xl max-md:text-3xl max-lg:text-4xl">
           Everything you need to deploy your app
         </h1>
-        <p>
+        <p className="max-sm:text-base max-md:text-lg max-lg:text-xl">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur
           omnis recusandae natus corporis facere odit dignissimos quos
           perspiciatis cum saepe!
         </p>
       </div>
-      <div className="grid grid-cols-3 gap-6 p-7 ">
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 gap-6 p-7">
         {deployments.map((deployment, i) => (
           <DeploymentList
             key={i}
@@ -68,12 +69,16 @@ export default function Deployment() {
 function DeploymentList({ img, name, text }) {
   return (
     <div>
-      <div className=" flex flex-col justify-center items-center p-7  bg-gray-50 text-center gap-5">
-        <div className=" bg-gradient-to-r from-cyan-400 to-cyan-600  flex items-center justify-center p-3 rounded-[6px]">
+      <div className="flex flex-col justify-center items-center p-5 bg-gray-50 text-center gap-4 rounded-lg shadow-md">
+        <div className="bg-gradient-to-r from-cyan-400 to-cyan-600 flex items-center justify-center p-3 rounded-[6px]">
           {img}
         </div>
-        <h3 className=" ">{name}</h3>
-        <p className="text-gray-400">{text}</p>
+        <h3 className="text-lg font-semibold max-sm:text-base max-md:text-lg max-lg:text-xl">
+          {name}
+        </h3>
+        <p className="text-sm text-gray-400 max-sm:text-xs max-md:text-sm max-lg:text-base">
+          {text}
+        </p>
       </div>
     </div>
   );

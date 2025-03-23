@@ -56,17 +56,17 @@ function ActivityFeed({ activities }) {
     <div className="space-y-3">
       <h1>Acitivty Feed</h1>
       {activities.map((activity, i) => (
-        <div key={i} className="flex flex-col border-b border-gray-200 pb-2 ">
+        <div key={i} className="flex  flex-col border-b border-gray-200 pb-2 ">
           <div className="font-semibold flex justify-between ">
             <span>
-              <div className="flex gap-2 items-center">
+              <div className="flex flex-1 gap-2 items-center">
                 <GiEgyptianProfile />
                 {activity.user}
               </div>
             </span>
-            <span className="text-gray-500">{activity.time}</span>
+            <span className="text-gray-500 ">{activity.time}</span>
           </div>
-          <div className="w-[80%] flex text-gray-400 gap-2 ">
+          <div className="flex-1 flex text-gray-400 gap-2 ">
             <span>{activity.action}</span>
             <span>{activity.project}</span>
             <span>

@@ -8,7 +8,7 @@ export default function Header() {
       <div className="flex justify-between items-center">
         <div className="flex gap-4 items-center justify-center">
           <FaGithub className="h-[32px] w-auto" />
-          <nav className="space-x-7">
+          <nav className="space-x-7  ">
             <NavLink className="hover:text-cyan-400 duration-300">
               Product
             </NavLink>
@@ -23,7 +23,7 @@ export default function Header() {
             </NavLink>
           </nav>
         </div>
-        <div className="space-x-7">
+        <div className="space-x-7 max-md:hidden">
           <button className="cursor-pointer  hover:text-cyan-400 duration-300">
             Log in
           </button>
