@@ -34,13 +34,13 @@ export default function Hero() {
             </p>
           </div>
           <div className="space-y-4">
-            <div className="flex items-center gap-3 ">
+            <div className="flex items-center gap-3 max-sm:flex-col ">
               <input
-                className="flex-2  min-w-[100px] max-sm:w-full bg-white text-gray-600 py-[12px] px-[24px] rounded-[6px] border-2 border-gray-300 focus:outline-none focus:border-cyan-500"
+                className="flex-2  min-w-[200px] max-sm:w-full bg-white text-gray-600 py-[12px] px-[24px] rounded-[6px] border-2 border-gray-300 focus:outline-none focus:border-cyan-500"
                 type="email"
                 placeholder="Enter your email"
               />
-              <button className="flex-1 min-w-[100px] bg-gradient-to-r from-cyan-300 to-cyan-500 py-[12px] px-[24px] rounded-[6px] cursor-pointer hover:from-cyan-400 hover:to-cyan-600  transition duration-300">
+              <button className="flex-1 min-w-[150px] bg-gradient-to-r from-cyan-300 to-cyan-500 py-[12px] px-[24px] rounded-[6px] cursor-pointer hover:from-cyan-400 hover:to-cyan-600  transition duration-300">
                 Start free trial
               </button>
             </div>
