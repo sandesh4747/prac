@@ -10,7 +10,7 @@ export default function ProfileHeader() {
         <FaGithub className="h-[32px] w-auto " />
       </div>
 
-      <div className="flex-2 flex items-center   text-white bg-cyan-300 rounded-[6px]  py-1 px-2 focus-within:ring-2 focus-within:ring-cyan-200">
+      <div className="flex-2 flex items-center gap-1  text-white bg-cyan-300 rounded-[6px]  py-1 px-2 focus-within:ring-2 focus-within:ring-cyan-200">
         <CiSearch className="ml-2" />
         <input
           className=" w-full focus:outline-none  "
