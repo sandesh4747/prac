@@ -24,8 +24,8 @@ export default function RootLayout() {
     location.pathname === "/about" || location.pathname === "/contact";
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
       <main className="flex-grow mb-5 ">
+        <Header />
         <Outlet /> {/* This will render the matched child route component */}
       </main>
       <div className={isAboutOrContactPage ? "mb-5" : ""}>

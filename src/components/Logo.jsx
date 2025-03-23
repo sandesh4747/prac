@@ -16,7 +16,7 @@ export default function Logo() {
       <h1 className="text-4xl font-semibold pb-4 animate-slide-in-right ">
         Technologies I use
       </h1>
-      <div className="grid grid-cols-[1fr_1fr_1fr_1fr] justify-center items-center space-y-8 animate-disappear-appear ">
+      <div className="grid grid-cols-(repeat(4,1fr)) justify-center items-center space-y-8 animate-disappear-appear ">
         <div className="transition-all duration-300 hover:text-red-500 hover:scale-110">
           <FontAwesomeIcon
             icon={faReact}

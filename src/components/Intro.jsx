@@ -3,7 +3,7 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react"; // Import DotLott
 
 export default function Intro() {
   return (
-    <div className="grid grid-cols-[1fr_1.5fr] items-center p-[2%] pb-0 font-sans ">
+    <div className="grid grid-cols-[1fr_1.5fr] items-center p-[2%] pb-0 font-sans max-md:grid-cols-1 ">
       {/* Animation Section */}
       <div className="flex  justify-center animate-slide-in-left">
         <DotLottieReact

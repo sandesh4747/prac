@@ -13,7 +13,7 @@ import {
 
 export default function Tech() {
   return (
-    <div className=" grid grid-cols-[repeat(3,1fr)] justify-items-center">
+    <div className="  grid grid-cols-(--my-grid) justify-items-center">
       <DiReact
         size={200}
         className="hover:text-red-500 hover:scale-125 animation duration-200"
