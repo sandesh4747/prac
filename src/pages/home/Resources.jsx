@@ -7,7 +7,8 @@ export default function Resources() {
       type: "Article",
       title: "Boost your conversion rate",
       text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt eos possimus, unde eius nam provident! Tempora placeat sunt doloremque similique.",
-      avatar: "https://mighty.tools/mockmind-api/content/human/92.jpg",
+      avatar:
+        "https://static.diverseui.com/6564c49e-7f14-4d8d-8721-45c2df714764-10959850_799935303394478_797096814621614856_n.jpg",
       name: "Roel Aufderehar",
       date: "Mar 16, 2020. 6 min read",
     },
@@ -16,7 +17,7 @@ export default function Resources() {
       type: "Video",
       title: "How to use search engine optimization to drive sales",
       text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt eos possimus, unde eius nam provident! Tempora placeat sunt doloremque similique.",
-      avatar: "https://mighty.tools/mockmind-api/content/human/97.jpg",
+      avatar: "https://static.diverseui.com/female-45.jpg",
       name: "Brenna Goyette",
       date: "Mar 10, 2020. 4 min read",
     },
@@ -25,7 +26,8 @@ export default function Resources() {
       type: "Case Study",
       title: "Improve your customer experience",
       text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt eos possimus, unde eius nam provident! Tempora placeat sunt doloremque similique.",
-      avatar: "https://mighty.tools/mockmind-api/content/human/91.jpg",
+      avatar:
+        "https://static.diverseui.com/3fa3b0c2-df93-4962-a3d9-7cad201135b3-jpg",
       name: "Daniela Metz",
       date: "Feb 12, 2020. 6 min read",
     },
