@@ -10,20 +10,26 @@ export default function Header() {
   return (
     <div className="p-7 bg-gray-900 text-white">
       <div className="flex justify-between items-center">
-        <div className="flex gap-4 items-center justify-center ">
-          <FaGithub className="h-[32px] w-auto" />
+        <div className="flex gap-4 items-center justify-center max-md:w-full ">
+          <div className="w-full flex  items-center justify-between">
+            <div>
+              <FaGithub className="h-[32px] w-auto" />
+            </div>
 
-          {/* Menu Icon */}
-          <button
-            onClick={toggleMenu}
-            className="max-sm:block focus:outline-none"
-          >
-            {isMenuOpen ? (
-              <FaTimes className="h-6 w-6" />
-            ) : (
-              <FaBars className="h-6 w-6" />
-            )}
-          </button>
+            {/* Menu Icon */}
+            <div>
+              <button
+                onClick={toggleMenu}
+                className="max-md:block hidden focus:outline-none"
+              >
+                {isMenuOpen ? (
+                  <FaTimes className="h-6 w-6" />
+                ) : (
+                  <FaBars className="h-6 w-6" />
+                )}
+              </button>
+            </div>
+          </div>
           {/* Desktop */}
           <nav className="space-x-7 max-md:hidden">
             <NavLink className="hover:text-cyan-400 duration-300">

@@ -46,7 +46,7 @@ export default function ProfileBody2() {
 
   return (
     <div className="px-4 max-md:px-0 border-gray-300">
-      <div className="flex justify-between p-3 border-x border-b border-gray-300">
+      <div className="flex justify-between p-3 border-x border-b border-gray-300 max-md:border-x-0">
         <p className="font-semibold">Projects</p>
         <div>
           <button className="inline-flex items-center py-2 px-4 gap-2 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100">
@@ -72,7 +72,7 @@ export default function ProfileBody2() {
 
 function Profile({ projectName, framework, lastDeploy, location, repoLink }) {
   return (
-    <div className="border-t border-gray-300 border-x">
+    <div className="border-t border-gray-300 border-x max-md:border-x-0">
       <div className="flex flex-col md:flex-row justify-between p-3 gap-3 md:gap-0">
         {/* Left Section */}
         <div className="space-y-2 flex-2">

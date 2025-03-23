@@ -5,11 +5,12 @@ import { FaGithub } from "react-icons/fa";
 
 export default function ProfileHeader() {
   return (
-    <div className="flex justify-between gap-[20px] p-7 bg-gradient-to-r from-cyan-300 to-cyan-400 text-white">
-      <div className="flex ">
-        <FaGithub className="h-[32px] w-auto" />
+    <div className="flex justify-between gap-[20px] p-7 bg-gradient-to-r from-cyan-300 to-cyan-400 text-white max-md:flex-col max-md:items-center">
+      <div className="flex flex-1 ">
+        <FaGithub className="h-[32px] w-auto " />
       </div>
-      <div className="w-[50%] flex items-center   text-white bg-cyan-300 rounded-[6px]  py-1 px-2 focus-within:ring-2 focus-within:ring-cyan-200">
+
+      <div className="flex-2 flex items-center   text-white bg-cyan-300 rounded-[6px]  py-1 px-2 focus-within:ring-2 focus-within:ring-cyan-200">
         <CiSearch className="ml-2" />
         <input
           className=" w-full focus:outline-none  "

@@ -8,7 +8,7 @@ import { FaGithub } from "react-icons/fa";
 
 export default function ProfileBody() {
   return (
-    <div className="grid grid-cols-[1fr_3fr_1fr] p-8 max-sm:grid-cols-1 max-sm:p-4  max-lg:grid-cols-[1fr_2fr] max-md:grid-cols-1 max-md:space-y-6">
+    <div className="grid grid-cols-[1fr_3fr_1fr] p-8 max-sm:grid-cols-1 max-sm:p-4  max-lg:grid-cols-[1fr_2fr] max-md:grid-cols-1 max-md:space-y-8 max-md:pb-0">
       <div className="flex-1">
         <ProfileBody1 />
       </div>
