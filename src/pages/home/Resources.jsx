@@ -8,7 +8,7 @@ export default function Resources() {
       title: "Boost your conversion rate",
       text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt eos possimus, unde eius nam provident! Tempora placeat sunt doloremque similique.",
       avatar:
-        "https://static.diverseui.com/6564c49e-7f14-4d8d-8721-45c2df714764-10959850_799935303394478_797096814621614856_n.jpg",
+        "https://static.diverseui.com/88b95197-fd1e-4e11-8793-2903a5cfd06e-10584053_10153749310922416_3125632463004974493_n.jpg",
       name: "Roel Aufderehar",
       date: "Mar 16, 2020. 6 min read",
     },
@@ -17,7 +17,7 @@ export default function Resources() {
       type: "Video",
       title: "How to use search engine optimization to drive sales",
       text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt eos possimus, unde eius nam provident! Tempora placeat sunt doloremque similique.",
-      avatar: "https://static.diverseui.com/female-45.jpg",
+      avatar: "https://static.diverseui.com/female-44.jpg",
       name: "Brenna Goyette",
       date: "Mar 10, 2020. 4 min read",
     },
