@@ -8,7 +8,10 @@ import { VscSymbolEnumMember } from "react-icons/vsc";
 export default function ProfileBody1() {
   return (
     <div className="space-y-5">
-      <div className="flex gap-2 items-center">
+      <div
+        className="flex gap-2 items-center w-full
+           max-md:justify-center"
+      >
         <CgProfile className="h-[32px] w-auto" />
 
         <div>
