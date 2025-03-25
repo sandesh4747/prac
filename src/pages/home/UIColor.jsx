@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Home() {
+export default function UIColor() {
   const [UIcolor, setUIColor] = useState(null); // Initialize with white
 
   // Callback function to update the color
