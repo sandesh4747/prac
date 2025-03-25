@@ -8,12 +8,8 @@ export default function TodoList() {
   //   setShow((prev) => !prev);
   // };
   const handleRemove = (index) => {
-    // const numbers = [11, 22, 33, 44, 55];
-    // numbers.splice(1, 1)
-
-    // console.log(numbers);
-    users.splice(index, 1);
-    setUsers((prev) => [...prev]);
+    // setUsers((prev) => prev.filter((remove, i) => i !== index));
+    setUsers((prev) => prev.filter((remove) => remove.id !== index));
   };
   const handleUser = () => {
     const user = {
@@ -60,7 +56,7 @@ export default function TodoList() {
             </div>
             <div>
               <button
-                onClick={() => handleRemove(i)}
+                onClick={() => handleRemove(user.id)}
                 className="bg-pink-400 text-white px-2 cursor-pointer"
               >
                 Remove
