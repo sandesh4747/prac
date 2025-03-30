@@ -1,37 +1,47 @@
-import React from "react";
-import UIColor from "./UIColor";
-import CounterApp from "./CounterApp";
-import DarkMode from "./DarkMode";
-import PasswordToggle from "./PasswordToggle";
-import LikeDislike from "./LikeDislike";
-import TemperatureConverter from "./TemperatureConverter";
-import Todo from "./Todo";
-import Click from "./Click";
-import TodoList from "./TodoList";
-import TodoTod from "./TodoTod";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import React, { useEffect } from "react";
+import { useState } from "react";
 
 export default function Home() {
+  const [data, setData] = useState();
+  const [load, setLoad] = useState(false);
+
+  const getData = async () => {
+    setLoad(true);
+    try {
+      const response = await axios.get(
+        "https://www.themealdb.com/api/json/v1/1/categories.php"
+      );
+      setData((prev) => response.data);
+      setLoad(false);
+    } catch (err) {
+      setLoad(false);
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  if (load) {
+    return <h1>Loading.......</h1>;
+  }
+  console.log("hello");
   return (
-    <div className="flex gap-7 items-center justify-center p-7">
-      <Link to="/todo1" className="text-blue-500 hover:underline">
-        Todo1
-      </Link>
-      <Link to="/todo2" className="text-blue-500 hover:underline">
-        Todo2
-      </Link>
-      <Link to="/product" className="text-blue-500 hover:underline">
-        ProductList
-      </Link>
-      {/* <UIColor /> */}
-      {/* <CounterApp /> */}
-      {/* <DarkMode /> */}
-      {/* <PasswordToggle /> */}
-      {/* <LikeDislike /> */}
-      {/* <TemperatureConverter /> */}
-      {/* <Todo /> */}
-      {/* <Click /> */}
-      {/* <TodoList /> */}
+    <div>
+      <h1>Meals Caategory</h1>
+
+      {data &&
+        data.categories.map((cata) => {
+          return (
+            <div key={cata.idCategory}>
+              <h1>{cata.strCategory}</h1>
+              <img src={cata.strCategoryThumb} alt="" />
+              <p>{cata.strCategoryDescription}</p>
+            </div>
+          );
+        })}
     </div>
   );
 }

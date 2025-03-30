@@ -6,13 +6,20 @@ import NotFound from "./pages/NotFound";
 import TodoTod from "./pages/home/TodoTod";
 import TodoList from "./pages/home/TodoList";
 import Product from "./pages/home/Product";
+import CategoryItems from "./pages/Category_items/CategoryItems";
 
 export default function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <RootLayout />,
-      children: [{ path: "/", element: <Home /> }],
+      children: [
+        { index: true, element: <Home /> },
+        {
+          path: "category-items/:label",
+          element: <CategoryItems />,
+        },
+      ],
     },
     { path: "/todo1", element: <TodoList /> },
     { path: "/todo2", element: <TodoTod /> },
