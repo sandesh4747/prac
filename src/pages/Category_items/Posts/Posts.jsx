@@ -15,11 +15,12 @@ export default function Posts() {
       );
 
       setPosts(response.data);
+      // console.log(response.data);
 
       setLoading(false);
     } catch (err) {
       setLoading(false);
-      console.log(err);
+      // console.log(err);
     }
   };
   useEffect(() => {

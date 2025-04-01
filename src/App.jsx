@@ -10,6 +10,7 @@ import CategoryItems from "./pages/Category_items/CategoryItems";
 import RandomMeal from "./pages/Category_items/RandomMeal";
 import Posts from "./pages/Category_items/Posts/Posts";
 import PostDetail from "./pages/Category_items/Posts/PostDetails";
+import ItemDetail from "./pages/Category_items/ItemDetail/ItemDetail";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -33,6 +34,10 @@ export default function App() {
         {
           path: "post/:id",
           element: <PostDetail />,
+        },
+        {
+          path: "item-detail/:id",
+          element: <ItemDetail />,
         },
       ],
     },
