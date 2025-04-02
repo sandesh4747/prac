@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import useApiHooks from "../../../hooks/apiHooks";
+import useApiHooks from "../../../hooks/apihooks";
 
 export default function ItemDetail() {
   const { id } = useParams();
