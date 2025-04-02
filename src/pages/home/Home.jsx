@@ -1,31 +1,12 @@
-import axios from "axios";
-import React, { useEffect } from "react";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Shimmer } from "react-shimmer";
+import useApiHooks from "../../hooks/apiHooks";
 
 export default function Home() {
   const nav = useNavigate();
-  const [data, setData] = useState();
-  const [load, setLoad] = useState(false);
 
-  const getData = async () => {
-    setLoad(true);
-    try {
-      const response = await axios.get(
-        "https://www.themealdb.com/api/json/v1/1/categories.php"
-      );
-      setData((prev) => response.data);
-      setLoad(false);
-    } catch (err) {
-      setLoad(false);
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const [data, err, load] = useApiHooks(
+    "https://www.themealdb.com/api/json/v1/1/categories.php"
+  );
 
   if (load) {
     return (
