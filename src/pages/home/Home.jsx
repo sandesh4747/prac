@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import useApiHooks from "../../hooks/apihooks";
+import useApiHooks from "../../hooks/apiHooks";
 
 export default function Home() {
   const nav = useNavigate();
