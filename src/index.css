@@ -36,19 +36,14 @@
   h2 {
     @apply text-2xl font-bold;
   }
-
-  button {
-    @apply cursor-pointer;
-  }
-
-  input {
-    @apply border-2 border-gray-500 w-[250px] px-3 py-[2px];
-  }
 }
 
 @layer components {
   .btn {
     @apply bg-black px-5 text-white rounded-2xl py-3 ring-2 ring-purple-500;
+  }
+  button {
+    @apply cursor-pointer;
   }
 
   .card {
