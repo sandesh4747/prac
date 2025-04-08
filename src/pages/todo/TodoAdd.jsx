@@ -10,7 +10,11 @@ import {
 } from "@material-tailwind/react";
 import { Formik } from "formik";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 import * as Yup from "yup";
+import { addTodo } from "./todoSlice";
+import { nanoid } from "@reduxjs/toolkit";
 
 const todoSchema = Yup.object({
   // email: Yup.string()
@@ -28,6 +32,8 @@ const todoSchema = Yup.object({
 });
 
 export default function TodoAdd() {
+  const dispatch = useDispatch();
+  const nav = useNavigate();
   return (
     <div>
       <Formik
@@ -40,7 +46,8 @@ export default function TodoAdd() {
           description: "",
         }}
         onSubmit={(val) => {
-          console.log(val);
+          dispatch(addTodo({ ...val, id: nanoid() }));
+          nav(-1);
         }}
         validationSchema={todoSchema}
       >
