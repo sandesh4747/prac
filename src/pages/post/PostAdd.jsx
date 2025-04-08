@@ -41,7 +41,7 @@ export default function PostAdd() {
           touched,
           errors,
         }) => (
-          <form onSubmit={handleSubmit} className="space-y-4 nax-w-md mx-auto">
+          <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto">
             <Input
               name="title"
               label="Post Title"
