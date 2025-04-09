@@ -8,9 +8,9 @@ import {
 } from "@material-tailwind/react";
 import { useDispatch } from "react-redux";
 import { removeTodo } from "./todoSlice";
+import { OpenDialog } from "../../components/OpenDialog";
 
 export function TodoCard({ todo, index }) {
-  const dispatch = useDispatch();
   return (
     <Card className="mt-6 w-96">
       <CardBody>
@@ -63,13 +63,14 @@ export function TodoCard({ todo, index }) {
           <IconButton color="green " size="sm">
             <i className="fas fa-edit" />
           </IconButton>
-          <IconButton
+          {/* <IconButton
             onClick={() => dispatch(removeTodo(index))}
             color="pink"
             size="sm"
           >
             <i className="fas fa-trash" />
-          </IconButton>
+          </IconButton> */}
+          <OpenDialog index={index} />
         </div>
       </CardFooter>
     </Card>
