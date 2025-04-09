@@ -12,14 +12,17 @@ export const todoSlice = createSlice({
       setToLocal(state.todos);
     },
     updateTodo: (state, action) => {
-      //Todo:
+      state.todos = state.todos.map((todo) =>
+        todo.id === action.payload.id ? action.payload : todo
+      );
+
+      setToLocal(state.todos);
     },
     removeTodo: (state, action) => {
-      console.log("Payload:", action.payload);
       state.todos.splice(action.payload, 1);
       setToLocal(state.todos);
     },
   },
 });
 
-export const { addTodo, removeTodo } = todoSlice.actions;
+export const { addTodo, updateTodo, removeTodo } = todoSlice.actions;

@@ -6,11 +6,12 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
-import { useDispatch } from "react-redux";
-import { removeTodo } from "./todoSlice";
+
 import { OpenDialog } from "../../components/OpenDialog";
+import { useNavigate } from "react-router";
 
 export function TodoCard({ todo, index }) {
+  const nav = useNavigate();
   return (
     <Card className="mt-6 w-96">
       <CardBody>
@@ -60,16 +61,13 @@ export function TodoCard({ todo, index }) {
         </div>
 
         <div className="space-x-5">
-          <IconButton color="green " size="sm">
-            <i className="fas fa-edit" />
-          </IconButton>
-          {/* <IconButton
-            onClick={() => dispatch(removeTodo(index))}
-            color="pink"
+          <IconButton
+            onClick={() => nav(`/edit-todo/${todo.id}`)}
+            color="green"
             size="sm"
           >
-            <i className="fas fa-trash" />
-          </IconButton> */}
+            <i className="fas fa-edit" />
+          </IconButton>
           <OpenDialog index={index} />
         </div>
       </CardFooter>

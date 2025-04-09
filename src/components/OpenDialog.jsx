@@ -7,30 +7,29 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { removeTodo } from "../pages/todo/todoSlice";
 
 export function OpenDialog({ index }) {
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const handleOpen = () => setOpen(!open);
 
+  const handleRemove = () => {
+    dispatch(removeTodo(index));
+    handleOpen();
+  };
   return (
     <>
-      <IconButton
-        onClick={handleOpen}
-        // onClick={() => dispatch(removeTodo(index))}
-        color="pink"
-        size="sm"
-      >
+      <IconButton onClick={handleOpen} color="pink" size="sm">
         <i className="fas fa-trash" />
       </IconButton>
       <Dialog
         size="sm"
-        className="bg-white "
+        className="opacity-65 backdrop-grayscale-100 backdrop-opacity-90 shadow-blue-200 drop-shadow-xl"
         open={open}
         handler={handleOpen}
-        overlayProps={{
-          className: "fixed inset-0 bg-gray-800 bg-opacity-50",
-        }}
       >
         <DialogHeader>Its a simple dialog.</DialogHeader>
         <DialogBody>
@@ -48,7 +47,7 @@ export function OpenDialog({ index }) {
           >
             <span>Cancel</span>
           </Button>
-          <Button variant="gradient" color="green" onClick={handleOpen}>
+          <Button variant="gradient" color="green" onClick={handleRemove}>
             <span>Confirm</span>
           </Button>
         </DialogFooter>
