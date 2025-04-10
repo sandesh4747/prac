@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import postReducer from "./postSlice";
+import { newsSlice } from "../pages/News/NewsSlice";
 
 export const store = configureStore({
   reducer: {
-    post: postReducer,
+    [newsSlice.name]: newsSlice.reducer,
   },
 });
