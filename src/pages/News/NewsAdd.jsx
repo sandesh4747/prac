@@ -4,7 +4,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { useNavigate } from "react-router";
-import { addNews } from "./NewsSlice";
+import { addNews } from "./newsSlice";
 
 const newsSchema = Yup.object({
   title: Yup.string().required("Title is required"),
