@@ -1,7 +1,7 @@
 import { Button, Card, IconButton, Typography } from "@material-tailwind/react";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteNews } from "./NewsSlice";
+import { deleteNews } from "./newsSlice";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 

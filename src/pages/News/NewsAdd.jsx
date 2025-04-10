@@ -3,7 +3,7 @@ import { Formik } from "formik";
 import React from "react";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
-import { addNews } from "./NewsSlice";
+import { addNews } from "./newsSlice";
 import { useNavigate } from "react-router";
 
 const newsSchema = Yup.object({
