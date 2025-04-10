@@ -27,7 +27,7 @@ export function OpenDialog({ index }) {
       </IconButton>
       <Dialog
         size="sm"
-        className="opacity-65 backdrop-grayscale-100 backdrop-opacity-90 shadow-blue-200 drop-shadow-xl"
+        className="bg-white dark:bg-gray-800"
         open={open}
         handler={handleOpen}
       >

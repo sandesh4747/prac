@@ -45,17 +45,32 @@
 import React, { useActionState } from "react";
 import { useSelector } from "react-redux";
 import { TodoCard } from "./TodoCard";
+import { postSlice } from "./PostSlice";
 
 export default function TodoPage() {
   const { todos } = useSelector((state) => {
     return state.todoSlice;
   });
+  const { posts } = useSelector((state) => {
+    return state.postSlice;
+  });
 
   return (
-    <div className="p-5">
-      {todos.length < 1 && <h1></h1>}
-      {todos.map((todo, i) => {
-        return <TodoCard key={todo.id} todo={todo} index={i} />;
+    <div className="space-y-7">
+      {" "}
+      <div className="p-5 grid grid-cols-3 gap-14">
+        {todos.length < 1 && <h1></h1>}
+        {todos.map((todo, i) => {
+          return <TodoCard key={todo.id} todo={todo} index={i} />;
+        })}
+      </div>
+      {posts.map((post, i) => {
+        return (
+          <div>
+            <h1>{post.title}</h1>
+            <p>{post.detail}</p>
+          </div>
+        );
       })}
     </div>
   );

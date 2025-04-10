@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { todoSlice } from "../pages/todo/todoSlice";
+import { postSlice } from "../pages/todo/PostSlice";
 
 export const store = configureStore({
   reducer: {
     [todoSlice.name]: todoSlice.reducer,
+    [postSlice.name]: postSlice.reducer,
   },
 });
