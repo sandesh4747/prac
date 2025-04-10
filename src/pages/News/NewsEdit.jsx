@@ -4,7 +4,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 import * as Yup from "yup";
-import { updateNews } from "./newsSlice";
+import { updateNews } from "./NewsSlice";
 
 const categories = ["Technology", "Sports", "Business", "Entertainment"];
 

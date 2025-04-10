@@ -3,8 +3,8 @@ import { Formik } from "formik";
 import React from "react";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
-import { addNews } from "./newsSlice";
 import { useNavigate } from "react-router";
+import { addNews } from "./NewsSlice";
 
 const newsSchema = Yup.object({
   title: Yup.string().required("Title is required"),
