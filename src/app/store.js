@@ -1,8 +1,5 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { newsSlice } from "../pages/News/newsSlice";
+// import { configureStore } from "@reduxjs/toolkit";
 
-export const store = configureStore({
-  reducer: {
-    [newsSlice.name]: newsSlice.reducer,
-  },
-});
+// export const store = configureStore({
+//   reducer: {},
+// });
