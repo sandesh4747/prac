@@ -3,13 +3,18 @@ import { createBrowserRouter } from "react-router";
 import RootLayout from "./components/RootLayout";
 
 import { RouterProvider } from "react-router-dom";
+import Header from "./components/Header";
 
 export default function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <RootLayout />,
-      children: [{ index: true }],
+      children: [
+        {
+          index: true,
+        },
+      ],
     },
   ]);
   return <RouterProvider router={router} />;
