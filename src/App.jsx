@@ -1,30 +1,11 @@
 import React from "react";
-import { createBrowserRouter } from "react-router";
-import RootLayout from "./components/RootLayout";
-
-import { RouterProvider } from "react-router-dom";
-import Header from "./components/Header";
-import ProductList from "./features/product/ProductList";
-import RecipeList from "./features/recipe/RecipeList";
-import BlogList from "./features/blog/BlogList";
-import AddBlog from "./features/blog/AddBlog";
+import Accordian from "./components/accordian/Accordian";
+import "./App.css";
 
 export default function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <RootLayout />,
-      children: [
-        {
-          index: true,
-          element: <BlogList />,
-        },
-        {
-          path: "add-blog",
-          element: <AddBlog />,
-        },
-      ],
-    },
-  ]);
-  return <RouterProvider router={router} />;
+  return (
+    <div className="App">
+      <Accordian />
+    </div>
+  );
 }
