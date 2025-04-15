@@ -1,5 +1,20 @@
-// import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import { productApi } from "../features/product/productApi";
+import { recipeApi } from "../features/recipe/recipeApi";
+import { blogApi } from "../features/blog/blogApi";
 
-// export const store = configureStore({
-//   reducer: {},
-// });
+export const store = configureStore({
+  reducer: {
+    [productApi.reducerPath]: productApi.reducer,
+    [recipeApi.reducerPath]: recipeApi.reducer,
+    [blogApi.reducerPath]: blogApi.reducer,
+  },
+
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat([
+      // extra features caching / invalidation / polling
+      productApi.middleware,
+      recipeApi.middleware,
+      blogApi.middleware,
+    ]),
+});
