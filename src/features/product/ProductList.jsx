@@ -1,5 +1,6 @@
 import React from "react";
 import { useGetAllProductsQuery } from "./productApi";
+import { Card, CardBody, Typography } from "@material-tailwind/react";
 
 export default function ProductList() {
   const { isLoading, isFetching, refetch, error, data } =
@@ -12,15 +13,17 @@ export default function ProductList() {
   console.log(data);
 
   return (
-    <div>
+    <Card className="w-96">
       {data.products.map((product) => (
-        <div key={product.id}>
-          <h3>{product.title}</h3>
-          <p>${product.price}</p>
-          <p>{product.description}</p>
-          <p>{product.category}</p>
-        </div>
+        <CardBody>
+          <div className="mb-4 flex  flex-col items-center justify-between">
+            <Typography>{product.title}</Typography>
+            <Typography>{product.price}</Typography>
+            <Typography>{product.description}</Typography>
+            <Typography>{product.category}</Typography>
+          </div>
+        </CardBody>
       ))}
-    </div>
+    </Card>
   );
 }

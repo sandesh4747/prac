@@ -5,8 +5,9 @@ export default function Header() {
   return (
     <div className="bg-black text-white px-5 py-2 flex items-center justify-between">
       <h1>Redux ToolKit</h1>
-      <nav>
+      <nav className="space-x-2">
         <NavLink to={"/add-blog"}>Add blog</NavLink>
+        <NavLink to={"/add-recipe"}>Add recipe</NavLink>
       </nav>
     </div>
   );

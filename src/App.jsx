@@ -17,11 +17,15 @@ export default function App() {
       children: [
         {
           index: true,
-          element: <BlogList />,
+          element: <ProductList />,
         },
         {
           path: "add-blog",
           element: <AddBlog />,
+        },
+        {
+          path: "add-recipe",
+          element: <RecipeList />,
         },
       ],
     },
