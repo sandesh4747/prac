@@ -23,10 +23,10 @@ export default function App() {
           path: "add-blog",
           element: <AddBlog />,
         },
-        {
-          path: "add-recipe",
-          element: <RecipeList />,
-        },
+        // {
+        //   path: "add-recipe",
+        //   element: <RecipeList />,
+        // },
       ],
     },
   ]);

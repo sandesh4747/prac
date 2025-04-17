@@ -1,29 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import { useGetAllProductsQuery } from "./productApi";
-import { Card, CardBody, Typography } from "@material-tailwind/react";
+import {
+  Avatar,
+  Card,
+  List,
+  ListItem,
+  ListItemPrefix,
+  Typography,
+} from "@material-tailwind/react";
+import ProductSort from "./ProductSort";
 
 export default function ProductList() {
+  const [query, setQuery] = useState();
   const { isLoading, isFetching, refetch, error, data } =
-    useGetAllProductsQuery();
+    useGetAllProductsQuery(query);
 
   if (isLoading) {
     return <h1>Loading....</h1>;
   }
 
-  console.log(data);
+  console.log("render");
 
   return (
-    <Card className="w-96">
-      {data.products.map((product) => (
-        <CardBody>
-          <div className="mb-4 flex  flex-col items-center justify-between">
-            <Typography>{product.title}</Typography>
-            <Typography>{product.price}</Typography>
-            <Typography>{product.description}</Typography>
-            <Typography>{product.category}</Typography>
-          </div>
-        </CardBody>
-      ))}
-    </Card>
+    <div className="space-y-5">
+      <ProductSort setQuery={setQuery} />
+
+      <Card className="max-w-[400px]">
+        {data.products.map((product) => {
+          return (
+            <List key={product.id}>
+              <ListItem>
+                <ListItemPrefix>
+                  <Avatar
+                    variant="circular"
+                    alt="candice"
+                    src={product.thumbnail}
+                  />
+                </ListItemPrefix>
+                <div>
+                  <Typography variant="h6" color="blue-gray">
+                    {product.title}
+                  </Typography>
+                  <Typography
+                    variant="small"
+                    color="gray"
+                    className="font-normal"
+                  >
+                    {product.category}
+                  </Typography>
+                  <Typography
+                    variant="small"
+                    color="gray"
+                    className="font-normal"
+                  >
+                    {product.price}
+                  </Typography>
+                </div>
+              </ListItem>
+            </List>
+          );
+        })}
+      </Card>
+    </div>
   );
 }

@@ -7,7 +7,7 @@ export default function Header() {
       <h1>Redux ToolKit</h1>
       <nav className="space-x-2">
         <NavLink to={"/add-blog"}>Add blog</NavLink>
-        <NavLink to={"/add-recipe"}>Add recipe</NavLink>
+        {/* <NavLink to={"/add-recipe"}>Add recipe</NavLink> */}
       </nav>
     </div>
   );

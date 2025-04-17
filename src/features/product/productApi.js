@@ -6,11 +6,12 @@ export const productApi = createApi({
   endpoints: (builder) => ({
     getAllProducts: builder.query({
       /*this query is For GET requests (data fetching) */
-      query: () => ({
+      query: (queryData) => ({
         /* this query is  A function that returns the request configuration*/
         url: "/",
 
         method: "GET",
+        params: queryData,
       }),
     }),
     getSingleProduct: builder.query({
