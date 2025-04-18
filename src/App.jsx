@@ -4,10 +4,7 @@ import RootLayout from "./components/RootLayout";
 
 import { RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
-import ProductList from "./features/product/ProductList";
-import RecipeList from "./features/recipe/RecipeList";
-import BlogList from "./features/blog/BlogList";
-import AddBlog from "./features/blog/AddBlog";
+import HomePage from "./features/Home/HomePage";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -17,16 +14,8 @@ export default function App() {
       children: [
         {
           index: true,
-          element: <ProductList />,
+          element: <HomePage />,
         },
-        {
-          path: "add-blog",
-          element: <AddBlog />,
-        },
-        // {
-        //   path: "add-recipe",
-        //   element: <RecipeList />,
-        // },
       ],
     },
   ]);
