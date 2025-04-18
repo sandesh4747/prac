@@ -1,16 +1,19 @@
+import { Button } from "@material-tailwind/react";
 import React, { memo } from "react";
 
-export default memo(function Child({ handlesome }) {
+export default memo(function Child({ handleChange }) {
   console.log("child render");
 
   return (
     <div>
-      <h1></h1>
+      <Button onClick={handleChange}>Click TO</Button>
+
       <h1>Child Render</h1>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, inventore,
-        in fuga dolor accusamus enim, doloremque molestias nulla saepe omnis
-        placeat doloribus sit! Nemo, repudiandae. Totam, optio nam! Quia, rem?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente
+        accusamus, amet aliquid itaque omnis ducimus? Porro aspernatur, commodi
+        a natus id est aliquid fugit inventore impedit doloremque doloribus vero
+        placeat.
       </p>
     </div>
   );
