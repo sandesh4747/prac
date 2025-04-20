@@ -4,10 +4,10 @@ import RootLayout from "./components/RootLayout";
 
 import { RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
-import ProductList from "./features/product/ProductList";
-import RecipeList from "./features/recipe/RecipeList";
-import BlogList from "./features/blog/BlogList";
-import AddBlog from "./features/blog/AddBlog";
+
+import UserList from "./features/user/UserList";
+import AddUser from "./features/user/AddUser";
+import UpdateUser from "./features/user/UpdateUser";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -17,16 +17,16 @@ export default function App() {
       children: [
         {
           index: true,
-          element: <ProductList />,
+          element: <UserList />,
         },
         {
-          path: "add-blog",
-          element: <AddBlog />,
+          path: "add-user",
+          element: <AddUser />,
         },
-        // {
-        //   path: "add-recipe",
-        //   element: <RecipeList />,
-        // },
+        {
+          path: "update-user/:id",
+          element: <UpdateUser />,
+        },
       ],
     },
   ]);
