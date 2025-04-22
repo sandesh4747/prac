@@ -5,8 +5,4 @@ import { StrictMode } from "react";
 
 // virtual dom  main dom
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+createRoot(document.getElementById("root")).render(<App />);
