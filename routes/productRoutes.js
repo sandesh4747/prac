@@ -1,0 +1,22 @@
+import express from "express";
+import {
+  addProducts,
+  getProduct,
+  getProducts,
+  removeProducts,
+  updateProduct,
+} from "../controllers/productController.js";
+import { notAllowed } from "../utils/notAllowed.js";
+
+const router = express.Router();
+router.route("/products").get(getProducts).post(addProducts).all(notAllowed);
+
+router
+  .route("/products/:id")
+  .get(getProduct)
+  .patch(updateProduct)
+  .delete(removeProducts);
+export default router;
+
+// products add get search sort pagination
+// /products/:id delete update getById
