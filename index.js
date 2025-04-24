@@ -15,7 +15,6 @@ app.get("/", (req, res) => {
 
   return res.status(200).json({
     message: "Welcome to Backened",
-    numbers: [11, 22, 33, 44, 55],
   });
 });
 

@@ -17,6 +17,3 @@ router
   .patch(updateProduct)
   .delete(removeProducts);
 export default router;
-
-// products add get search sort pagination
-// /products/:id delete update getById
