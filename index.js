@@ -10,7 +10,7 @@ mongoose
     "mongodb+srv://Sandesh:sandeshthapa@cluster0.zonuagz.mongodb.net/Shopfiy"
   )
   .then((val) => {
-    console.log(val);
+    // console.log(val);
     app.listen(5000, () => {
       console.log("server is listening");
     });

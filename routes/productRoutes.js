@@ -1,19 +1,19 @@
 import express from "express";
 import {
-  addProducts,
+  addProduct,
   getProduct,
   getProducts,
-  removeProducts,
+  removeProduct,
   updateProduct,
 } from "../controllers/productController.js";
 import { notAllowed } from "../utils/notAllowed.js";
 
 const router = express.Router();
-router.route("/products").get(getProducts).post(addProducts).all(notAllowed);
+router.route("/products").get(getProducts).post(addProduct).all(notAllowed);
 
 router
   .route("/products/:id")
   .get(getProduct)
   .patch(updateProduct)
-  .delete(removeProducts);
+  .delete(removeProduct);
 export default router;
