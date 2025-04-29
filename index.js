@@ -7,7 +7,7 @@ const app = express();
 // database connect
 mongoose
   .connect(
-    "mongodb+srv://Sandesh:sandeshthapa@cluster0.zonuagz.mongodb.net/Shopfiy"
+    "mongodb+srv://Sandesh:sandeshthapa@cluster0.zonuagz.mongodb.net/Shopify"
   )
   .then((val) => {
     // console.log(val);

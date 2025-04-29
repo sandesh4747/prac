@@ -1,8 +1,64 @@
-import Product from "../models/Product.js";
+import Product, { brands, categories } from "../models/Product.js";
+
+export const getTop5 = (req, res) => {
+  req.query.rating = { $gt: 4.5 };
+  return next();
+};
 
 export const getProducts = async (req, res) => {
   try {
-    const products = await Product.find();
+    const queryObject = { ...req.query };
+    const excludeFields = ["sort", "page", "limit", "fields", "skip", "search"];
+    console.log(req.query);
+    excludeFields.forEach((label) => delete queryObject[label]);
+    delete queryObject["sort"];
+    // let qryStr = JSON.stringify(queryObject);
+    // qryStr = qryStr.replace(/\b(gte|gt|lte|lt|eq)\b/g, (match) => `$${match}`);
+    // console.log(JSON.parse(qryStr));
+    // console.log(queryObject);
+    // {
+    //   rating: {
+    //     $gt: 4;
+    //   }
+    // }
+
+    let query = Product.find(queryObject);
+    if (req.query.search) {
+      const searchText = req.query.search.toLowerCase();
+      if (categories.includes(searchText)) {
+        queryObject.category = { $regex: searchText, $options: "i" };
+      } else if (brands.includes(searchText)) {
+        queryObject.brand = { $regex: searchText, $options: "i" };
+      } else {
+        queryObject.title = { $regex: searchText, $options: "i" };
+      }
+    }
+
+    if (req.query.sort) {
+      const sorting = req.query.sort
+        .split(/[\s,]+/)
+        .filter(Boolean)
+        .join(" ");
+      query.sort(sorting);
+    }
+
+    if (req.query.fields) {
+      const selects = req.query.fields
+        .split(/[\s,]+/)
+        .filter(Boolean)
+        .join(" ");
+      query.select(selects);
+    }
+
+    const page = req.query.page || 1;
+    const limit = req.query.limit || 10;
+    const skip = (page - 1) * 10;
+
+    const products = await query
+      .find({ rating: { $gt: 4.5 } })
+      .limit(5)
+      .sort("createdAt");
+
     return res.status(200).json(products);
   } catch (err) {
     return res.status(500).json({ message: `${err}` });

@@ -1,0 +1,137 @@
+[
+  {
+    "title": "Stylish Men's Jacket",
+    "description": "A warm and fashionable jacket perfect for winter outings.",
+    "price": 120,
+    "image": "https://source.unsplash.com/random/600x600/?jacket",
+    "rating": 4.3,
+    "category": "men's clothing",
+    "brand": "Addidas"
+  },
+  {
+    "title": "Elegant Women's Dress",
+    "description": "A stunning evening dress that turns heads everywhere.",
+    "price": 200,
+    "image": "https://source.unsplash.com/random/600x600/?dress",
+    "rating": 4.7,
+    "category": "women's clothing",
+    "brand": "Addidas"
+  },
+  {
+    "title": "Diamond Pendant Necklace",
+    "description": "A gorgeous necklace crafted with fine diamonds.",
+    "price": 850,
+    "image": "https://source.unsplash.com/random/600x600/?jewelery",
+    "rating": 4.8,
+    "category": "jewelery",
+    "brand": "Tanishq"
+  },
+  {
+    "title": "Latest iPhone 15 Pro",
+    "description": "Experience the next level performance with the iPhone 15 Pro.",
+    "price": 1199,
+    "image": "https://source.unsplash.com/random/600x600/?iphone",
+    "rating": 4.9,
+    "category": "electronics",
+    "brand": "Apple"
+  },
+  {
+    "title": "Men's Formal Leather Shoes",
+    "description": "Premium leather shoes ideal for business meetings.",
+    "price": 150,
+    "image": "https://source.unsplash.com/random/600x600/?shoes",
+    "rating": 4.2,
+    "category": "men's clothing",
+    "brand": "Addidas"
+  },
+  {
+    "title": "Women's Stylish Handbag",
+    "description": "Carry your essentials in style with this luxury handbag.",
+    "price": 180,
+    "image": "https://source.unsplash.com/random/600x600/?handbag",
+    "rating": 4.5,
+    "category": "women's clothing",
+    "brand": "Addidas"
+  },
+  {
+    "title": "Samsung Galaxy S24 Ultra",
+    "description": "Capture every moment with Samsung's latest flagship.",
+    "price": 999,
+    "image": "https://source.unsplash.com/random/600x600/?samsung",
+    "rating": 4.6,
+    "category": "electronics",
+    "brand": "Samsung"
+  },
+  {
+    "title": "Gold Wedding Ring",
+    "description": "Pure gold wedding ring symbolizing eternal love.",
+    "price": 1200,
+    "image": "https://source.unsplash.com/random/600x600/?weddingring",
+    "rating": 5.0,
+    "category": "jewelery",
+    "brand": "Tanishq"
+  },
+  {
+    "title": "Google Pixel 8 Pro",
+    "description": "Meet Pixel 8 Pro - smarter, faster, and more innovative.",
+    "price": 899,
+    "image": "https://source.unsplash.com/random/600x600/?pixel",
+    "rating": 4.4,
+    "category": "electronics",
+    "brand": "Google"
+  },
+  {
+    "title": "Women's Premium Leather Jacket",
+    "description": "Made from the finest leather for maximum comfort and style.",
+    "price": 310,
+    "image": "https://source.unsplash.com/random/600x600/?leatherjacket",
+    "rating": 4.3,
+    "category": "women's clothing",
+    "brand": "Addidas"
+  },
+  {
+    "title": "Men's Stylish Hoodie",
+    "description": "Stay comfortable and trendy with this designer hoodie.",
+    "price": 75,
+    "image": "https://source.unsplash.com/random/600x600/?hoodie",
+    "rating": 4.1,
+    "category": "men's clothing",
+    "brand": "Addidas"
+  },
+  {
+    "title": "Samsung Galaxy Buds 2 Pro",
+    "description": "Wireless earbuds with superior sound and noise cancellation.",
+    "price": 199,
+    "image": "https://source.unsplash.com/random/600x600/?earbuds",
+    "rating": 4.5,
+    "category": "electronics",
+    "brand": "Samsung"
+  },
+  {
+    "title": "Elegant Pearl Necklace",
+    "description": "Classic pearl necklace for an elegant and timeless look.",
+    "price": 650,
+    "image": "https://source.unsplash.com/random/600x600/?pearl",
+    "rating": 4.8,
+    "category": "jewelery",
+    "brand": "Tanishq"
+  },
+  {
+    "title": "Apple MacBook Pro 16\"",
+    "description": "The ultimate MacBook Pro for creatives and professionals.",
+    "price": 2499,
+    "image": "https://source.unsplash.com/random/600x600/?macbook",
+    "rating": 4.9,
+    "category": "electronics",
+    "brand": "Apple"
+  },
+  {
+    "title": "Google Nest Smart Speaker",
+    "description": "Voice-controlled smart speaker for your home automation.",
+    "price": 129,
+    "image": "https://source.unsplash.com/random/600x600/?speaker",
+    "rating": 4.4,
+    "category": "electronics",
+    "brand": "Google"
+  }
+]
