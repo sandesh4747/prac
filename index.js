@@ -2,17 +2,19 @@ import express from "express";
 import morgan from "morgan";
 import productRoutes from "./routes/productRoutes.js";
 import mongoose from "mongoose";
+import fileUpload from "express-fileupload";
 
 const app = express();
-// database connect
+
+//data base connect
+
 mongoose
   .connect(
-    "mongodb+srv://Sandesh:sandeshthapa@cluster0.zonuagz.mongodb.net/Shopify"
+    "mongodb+srv://rabyn900:moles900@cluster0.ikwdezp.mongodb.net/Shopify"
   )
   .then((val) => {
-    // console.log(val);
     app.listen(5000, () => {
-      console.log("server is listening");
+      console.log("database connected and server is listening");
     });
   })
   .catch((err) => {
@@ -20,14 +22,18 @@ mongoose
   });
 
 //middleware
-
 app.use(morgan("dev"));
 app.use(express.json());
+app.use(
+  fileUpload({
+    limits: { fileSize: 5 * 1024 * 1024 },
+    abortOnLimit: true,
+  })
+);
+
+app.use(express.static("uploads"));
 
 app.get("/", (req, res) => {
-  // const { q } = req.query;
-  // console.log(q);
-
   return res.status(200).json({
     message: "Welcome to Backened",
   });

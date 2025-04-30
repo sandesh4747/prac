@@ -1,5 +1,6 @@
 import Product, { brands, categories } from "../models/Product.js";
-
+import fs from "fs";
+import mongoose from "mongoose";
 export const getTop5 = (req, res, next) => {
   req.query.rating = { $gt: 4.5 };
   req.query.limit = 5;
@@ -67,14 +68,22 @@ export const getProduct = (req, res) => {
 
 export const addProduct = async (req, res) => {
   const { title, description, price, image, category, brand } = req.body;
+  console.log(req.body);
   try {
-    // await Product.create({
-    //   title, description, price, image, category, brand
-    // });
+    await Product.create({
+      title,
+      description,
+      price,
+      image: req.image,
+      category,
+      brand,
+    });
 
     return res.status(200).json({ message: "product added successfully" });
   } catch (err) {
-    return res.status(400).json({ message: `${err}` });
+    fs.unlink(`./uploads${req.image}`, (imageErr) => {
+      return res.status(400).json({ message: `${err}` });
+    });
   }
 };
 
