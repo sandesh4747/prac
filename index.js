@@ -10,7 +10,7 @@ const app = express();
 
 mongoose
   .connect(
-    "mongodb+srv://rabyn900:moles900@cluster0.ikwdezp.mongodb.net/Shopify"
+    "mongodb+srv://Sandesh:sandeshthapa@cluster0.zonuagz.mongodb.net/Shopify"
   )
   .then((val) => {
     app.listen(5000, () => {

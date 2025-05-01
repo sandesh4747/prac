@@ -1,6 +1,7 @@
 import Product, { brands, categories } from "../models/Product.js";
 import fs from "fs";
 import mongoose from "mongoose";
+
 export const getTop5 = (req, res, next) => {
   req.query.rating = { $gt: 4.5 };
   req.query.limit = 5;
@@ -67,8 +68,7 @@ export const getProduct = (req, res) => {
 };
 
 export const addProduct = async (req, res) => {
-  const { title, description, price, image, category, brand } = req.body;
-  console.log(req.body);
+  const { title, description, price, category, brand } = req.body;
   try {
     await Product.create({
       title,
@@ -78,7 +78,6 @@ export const addProduct = async (req, res) => {
       category,
       brand,
     });
-
     return res.status(200).json({ message: "product added successfully" });
   } catch (err) {
     fs.unlink(`./uploads${req.image}`, (imageErr) => {
@@ -87,9 +86,39 @@ export const addProduct = async (req, res) => {
   }
 };
 
-export const updateProduct = (req, res) => {
-  return res.status(200).json({ message: "addProducts" });
+export const updateProduct = async (req, res) => {
+  const product = req.product;
+  const { title, description, price, category, brand } = req.body;
+  try {
+    product.title = title || product.title;
+    product.description = description || product.description;
+    product.price = price || product.price;
+    product.category = category || product.category;
+    product.brand = brand || product.brand;
+    if (req.image) {
+      fs.unlink(`./uploads${product.image}`, async (err) => {
+        product.image = req.image;
+        await product.save();
+      });
+    }
+    // await product.save();
+    return res.status(200).json({ message: "product updated successfully" });
+  } catch (err) {
+    fs.unlink(`./uploads${req.image}`, (imageErr) => {
+      return res.status(400).json({ message: `${err}` });
+    });
+  }
 };
-export const removeProduct = (req, res) => {
-  return res.status(200).json({ message: "addProducts" });
+
+export const removeProduct = async (req, res) => {
+  const product = req.product;
+  try {
+    fs.unlink(`./uploads${product.image}`, async (imageErr) => {
+      if (imageErr) return res.status(400).json({ message: `${imageErr}` });
+      await Product.findByIdAndDelete(product._id);
+    });
+    return res.status(200).json({ message: "product removed successfully" });
+  } catch (err) {
+    return res.status(400).json({ message: `${err}` });
+  }
 };
