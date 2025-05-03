@@ -1,6 +1,8 @@
 import express from "express";
 import morgan from "morgan";
 import productRoutes from "./routes/productRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+
 import mongoose from "mongoose";
 import fileUpload from "express-fileupload";
 
@@ -39,7 +41,8 @@ app.get("/", (req, res) => {
   });
 });
 
-app.use(productRoutes);
+app.use("/api/products", productRoutes);
+app.use("/api/users", userRoutes);
 
 //path define file
 //response dine logic

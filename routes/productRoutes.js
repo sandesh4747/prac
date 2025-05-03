@@ -19,15 +19,15 @@ const validator = validate.createValidator({});
 const router = express.Router();
 
 router
-  .route("/products")
+  .route("/")
   .get(getProducts)
   .post(validator.body(productValSchema), fileCheck, addProduct)
   .all(notAllowed);
 
-router.route("/products/top-5").get(getTop5, getProducts).all(notAllowed);
+router.route("/top-5").get(getTop5, getProducts).all(notAllowed);
 
 router
-  .route("/products/:id")
+  .route("/:id")
   .get(getProduct)
   .patch(checkId, updateFileCheck, updateProduct)
   .delete(checkId, removeProduct)
