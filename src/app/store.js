@@ -1,14 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { userApi } from "../features/user/userApi";
+import { tourApi } from "../features/user/tourApi";
 
 export const store = configureStore({
   reducer: {
-    [userApi.reducerPath]: userApi.reducer,
+    [tourApi.reducerPath]: tourApi.reducer,
   },
-
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat([
-      // extra features caching / invalidation / polling
-      userApi.middleware,
-    ]),
+  middleware: (getDefalutMiddleWare) =>
+    getDefalutMiddleWare().concat(tourApi.middleware),
 });

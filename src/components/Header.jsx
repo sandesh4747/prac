@@ -1,13 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router";
 
 export default function Header() {
-  return (
-    <div className="bg-black text-white px-5 py-2 flex items-center justify-between">
-      <h1>Redux ToolKit</h1>
-      <nav className="space-x-2">
-        <NavLink to={"/add-user"}>Add User </NavLink>
-      </nav>
-    </div>
-  );
+  return <div></div>;
 }
