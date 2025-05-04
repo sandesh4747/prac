@@ -1,0 +1,18 @@
+import React from 'react'
+import { NavLink } from 'react-router'
+
+export default function Header() {
+  return (
+    <div className='bg-black text-white px-5 py-2 flex items-center justify-between'>
+
+      <h1>ShopiFy</h1>
+
+      <nav>
+
+
+
+      </nav>
+
+    </div>
+  )
+}
