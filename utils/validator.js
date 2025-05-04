@@ -1,7 +1,8 @@
 import Joi from "joi";
-import { validate } from "uuid";
-import { brands, categories } from "../models/Product.js";
+import validate from "express-joi-validation";
 
+import { brands, categories } from "../models/Product.js";
+export const validates = validate.createValidator({});
 export const loginSchema = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string().min(4).max(40).required(),
