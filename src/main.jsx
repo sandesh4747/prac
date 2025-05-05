@@ -1,6 +1,17 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./App.jsx";
+import App from "./App";
+import { Toaster } from "react-hot-toast";
+import { Provider } from "react-redux";
+import { store } from "./app/store";
 
-createRoot(document.getElementById("root")).render(<App />);
+// virtual dom  main dom
+
+createRoot(document.getElementById("root")).render(
+  <>
+    <Provider store={store}>
+      <App />
+      <Toaster />
+    </Provider>
+  </>
+);
