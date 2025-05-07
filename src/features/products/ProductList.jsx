@@ -1,15 +1,47 @@
 import React from "react";
+
+import { Rating } from "@material-tailwind/react";
 import { useGetProductsQuery } from "./productApi";
 
 export default function ProductList() {
   const { isLoading, error, data } = useGetProductsQuery();
-  if (isLoading) return <h1>Loading..,</h1>;
-  if (error) return <h1>{error}</h1>;
-  console.log(data);
+  if (isLoading)
+    return (
+      <h1 className="text-xl font-semibold text-center mt-10">Loading..,</h1>
+    );
+  if (error)
+    return (
+      <h1 className="text-xl font-semibold text-center mt-10 text-red-600">
+        {error}
+      </h1>
+    );
+
   return (
-    <div className="grid grid-cols-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 p-6">
       {data &&
-        data.map((product) => <div key={product._id}>{product.brand}</div>)}
+        data.map(({ title, rating, price, _id, image }) => (
+          <div
+            key={_id}
+            className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+          >
+            <div className="h-48 w-full overflow-hidden">
+              <img
+                className="h-full w-full object-cover"
+                src={`http://localhost:5000${image}`}
+                alt={title}
+              />
+            </div>
+            <div className="p-4 flex flex-col justify-between h-[150px]">
+              <h2 className="text-md font-semibold text-gray-800 line-clamp-2">
+                {title}
+              </h2>
+              <p className="text-blue-600 font-bold text-lg">{price}</p>
+              <Rating size="sm" className="mt-1">
+                {rating}
+              </Rating>
+            </div>
+          </div>
+        ))}
     </div>
   );
 }
