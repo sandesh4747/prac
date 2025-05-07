@@ -72,11 +72,11 @@ export const addProduct = async (req, res) => {
   try {
     await Product.create({
       title,
-      description,
+      // description,
       price,
       image: req.image,
       category,
-      brand,
+      // brand,
     });
     return res.status(200).json({ message: "product added successfully" });
   } catch (err) {
