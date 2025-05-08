@@ -22,7 +22,7 @@ export default function ProductList() {
         data.map(({ title, rating, price, _id, image }) => (
           <div
             key={_id}
-            className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+            className="bg-white rounded-xl overflow-hidden shadow hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out cursor-pointer"
           >
             <div className="h-48 w-full overflow-hidden">
               <img

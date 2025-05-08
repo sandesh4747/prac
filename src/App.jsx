@@ -6,6 +6,8 @@ import Login from "./features/authentication/Login";
 import SignUp from "./features/authentication/SignUp";
 
 import Home from "./features/home/Home";
+import AdminPage from "./features/admin/AdminPage";
+import ProductAddForm from "./features/admin/ProductAddForm";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -24,6 +26,14 @@ export default function App() {
         {
           path: "signup",
           element: <SignUp />,
+        },
+        {
+          path: "admin-page",
+          element: <AdminPage />,
+        },
+        {
+          path: "addPrdouctForm",
+          element: <ProductAddForm />,
         },
       ],
     },

@@ -5,6 +5,7 @@ import {
   QueueListIcon,
   ShoppingCartIcon,
   PowerIcon,
+  Squares2X2Icon,
 } from "@heroicons/react/24/solid";
 import {
   Avatar,
@@ -17,6 +18,7 @@ import {
 } from "@material-tailwind/react";
 import { useDispatch } from "react-redux";
 import { removeUser } from "../features/user/userSlice";
+import { useNavigate } from "react-router";
 
 // admin profile menu component
 const adminMenuItems = [
@@ -24,18 +26,18 @@ const adminMenuItems = [
     label: "Profile",
     icon: UserCircleIcon,
   },
-
   {
-    label: "Product-list",
-    icon: QueueListIcon,
+    label: "Admin Dashboard",
+    icon: Squares2X2Icon,
   },
+
   {
     label: "Sign Out",
     icon: PowerIcon,
   },
 ];
 
-// admin profile menu component
+//  profile menu component
 const userMenuItems = [
   {
     label: "Profile",
@@ -54,6 +56,7 @@ const userMenuItems = [
 
 export default function ProfileMenu({ user }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = () => setIsMenuOpen(false);
   const profileMenuItems =
@@ -92,7 +95,13 @@ export default function ProfileMenu({ user }) {
                 switch (label) {
                   case "Sign Out":
                     dispatch(removeUser());
-
+                    closeMenu();
+                    break;
+                  case "Admin Dashboard":
+                    navigate("/admin-page");
+                    closeMenu();
+                    break;
+                  default:
                     closeMenu();
                 }
               }}
