@@ -10,8 +10,28 @@ import React from "react";
 import { useAddProductMutation } from "../products/productApi";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
+import * as Yup from "yup";
+import { useNavigate } from "react-router";
+
+export const productSchema = Yup.object().shape({
+  title: Yup.string().required("title is required"),
+  description: Yup.string().required("description is required"),
+  price: Yup.number().required("price is required"),
+  //image: Yup.string().required('image is required'),
+  category: Yup.string().required("category is required"),
+  brand: Yup.string().required("brand is required"),
+  image: Yup.mixed()
+    .required("image is required")
+    .test("fileType", "Unsupported File Format", (value) => {
+      console.log(value);
+      return ["image/jpeg", "image/png", "image/jpg", "image/webp"].includes(
+        value.type
+      );
+    }),
+});
 
 export default function ProductAddForm() {
+  const nav = useNavigate();
   const [addProduct, { isLoading }] = useAddProductMutation();
   const { user } = useSelector((state) => state.userSlice);
 
@@ -40,12 +60,21 @@ export default function ProductAddForm() {
               token: user.token,
             }).unwrap();
             toast.success("successfully added");
+            nav(-1);
           } catch (err) {
             toast.error(err.data?.message || err.data);
           }
         }}
+        validationSchema={productSchema}
       >
-        {({ handleSubmit, handleChange, touched, values, setFieldValue }) => (
+        {({
+          handleSubmit,
+          handleChange,
+          touched,
+          values,
+          setFieldValue,
+          errors,
+        }) => (
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <Input
@@ -54,6 +83,9 @@ export default function ProductAddForm() {
                 label="Title"
                 name="title"
               />
+              {touched.title && errors.title && (
+                <p className="text-red-700">{errors.title}</p>
+              )}
             </div>
             <div>
               <Input
@@ -63,6 +95,9 @@ export default function ProductAddForm() {
                 name="price"
               />
             </div>
+            {touched.price && errors.price && (
+              <p className="text-red-700">{errors.price}</p>
+            )}
 
             <div>
               <Select
@@ -75,6 +110,9 @@ export default function ProductAddForm() {
                 <Option value="electronics">Electronics</Option>
               </Select>
             </div>
+            {touched.category && errors.category && (
+              <p className="text-red-700">{errors.category}</p>
+            )}
             <div>
               <Select
                 onChange={(e) => setFieldValue("brand", e)}
@@ -87,6 +125,9 @@ export default function ProductAddForm() {
                 <Option value="Tanishq">Tanishq</Option>
               </Select>
             </div>
+            {touched.brand && errors.brand && (
+              <p className="text-red-700">{errors.brand}</p>
+            )}
 
             <Textarea
               onChange={handleChange}
@@ -94,17 +135,32 @@ export default function ProductAddForm() {
               label="Description"
               name="description"
             />
-
+            {touched.description && errors.description && (
+              <p className="text-red-700">{errors.description}</p>
+            )}
             <div>
               <Input
                 label="Image"
                 onChange={(e) => {
                   const file = e.target.files[0];
+                  setFieldValue("imagePrev", URL.createObjectURL(file));
                   setFieldValue("image", file);
                 }}
                 name="image"
                 type="file"
               />
+              {touched.image && errors.image && (
+                <p className="text-red-700">{errors.image}</p>
+              )}
+            </div>
+            <div>
+              {!errors.image && values.imagePrev && (
+                <img
+                  className="w-[200px] h-[200px] object-cover"
+                  src={values.imagePrev}
+                  alt=""
+                />
+              )}
             </div>
 
             <Button loading={isLoading} type="submit">

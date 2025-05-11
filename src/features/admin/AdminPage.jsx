@@ -1,7 +1,10 @@
 import React from "react";
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
 
-import { useGetProductsQuery } from "../products/productApi";
+import {
+  useGetProductsQuery,
+  useRemoveProductMutation,
+} from "../products/productApi";
 import {
   Avatar,
   Button,
@@ -11,11 +14,11 @@ import {
 } from "@material-tailwind/react";
 import { baseUrl } from "../../app/mainApi";
 import { NavLink, useNavigate } from "react-router";
+import RemoveButton from "./ReomveBUtton";
 
 const TABLE_HEAD = ["image", "tItle", "_id", "edit", "delete"];
 
 export default function AdminPage() {
-  const navigate = useNavigate();
   const { isLoading, error, data } = useGetProductsQuery();
 
   if (isLoading) return <h1>Loading...</h1>;
@@ -51,14 +54,14 @@ export default function AdminPage() {
             </tr>
           </thead>
           <tbody>
-            {data.map(({ _id, image, title }, index) => {
+            {data.map(({ _id, image, title, name }, index) => {
               const isLast = index === data.length - 1;
               const classes = isLast
                 ? "p-4"
                 : "p-4 border-b border-blue-gray-50";
 
               return (
-                <tr key={name}>
+                <tr key={_id}>
                   <td className={classes}>
                     <Typography
                       variant="small"
@@ -93,9 +96,10 @@ export default function AdminPage() {
                   </td>
 
                   <td className={classes}>
-                    <IconButton size="sm" color="pink">
+                    <RemoveButton id={_id} />
+                    {/* <IconButton size="sm" color="pink">
                       <TrashIcon className="h-4 w-4" />
-                    </IconButton>
+                    </IconButton> */}
                   </td>
                 </tr>
               );

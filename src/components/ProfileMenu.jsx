@@ -102,8 +102,8 @@ export default function ProfileMenu({ user }) {
                     closeMenu();
                     break;
                   default:
-                    closeMenu();
                 }
+                closeMenu();
               }}
               className={`flex items-center gap-2 rounded ${
                 isLastItem
