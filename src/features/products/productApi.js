@@ -10,6 +10,13 @@ export const productApi = mainApi.injectEndpoints({
       }),
       providesTags: ["Product"],
     }),
+    getProduct: builder.query({
+      query: (id) => ({
+        url: `/products/${id}`,
+        method: "GET",
+      }),
+      providesTags: ["Product"],
+    }),
 
     getTop5Products: builder.query({
       query: (query) => ({
@@ -39,6 +46,16 @@ export const productApi = mainApi.injectEndpoints({
       }),
       invalidatesTags: ["Product"],
     }),
+    updateProduct: builder.mutation({
+      query: (q) => ({
+        url: `/products/${q.id}`,
+        method: "PATCHE",
+        headers: {
+          Authorization: q.token,
+        },
+      }),
+      invalidatesTags: ["Product"],
+    }),
   }),
 });
 
@@ -47,4 +64,6 @@ export const {
   useGetTop5ProductsQuery,
   useAddProductMutation,
   useRemoveProductMutation,
+  useUpdateProductMutation,
+  useGetProductQuery,
 } = productApi;

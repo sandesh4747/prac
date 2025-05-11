@@ -8,6 +8,7 @@ import SignUp from "./features/authentication/SignUp";
 import Home from "./features/home/Home";
 import AdminPage from "./features/admin/AdminPage";
 import ProductAddForm from "./features/admin/ProductAddForm";
+import ProductEdit from "./features/admin/ProductEdit";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -34,6 +35,10 @@ export default function App() {
         {
           path: "addPrdouctForm",
           element: <ProductAddForm />,
+        },
+        {
+          path: "edit-product/:id",
+          element: <ProductEdit />,
         },
       ],
     },

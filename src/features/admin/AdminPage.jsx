@@ -90,16 +90,15 @@ export default function AdminPage() {
                     </Typography>
                   </td>
                   <td className={classes}>
-                    <IconButton size="sm" color="green">
-                      <PencilIcon className="h-4 w-4" />
-                    </IconButton>
+                    <NavLink to={`/edit-product/${_id}`}>
+                      <IconButton size="sm" color="green">
+                        <PencilIcon className="h-4 w-4" />
+                      </IconButton>
+                    </NavLink>
                   </td>
 
                   <td className={classes}>
                     <RemoveButton id={_id} />
-                    {/* <IconButton size="sm" color="pink">
-                      <TrashIcon className="h-4 w-4" />
-                    </IconButton> */}
                   </td>
                 </tr>
               );
