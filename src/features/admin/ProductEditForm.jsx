@@ -1,3 +1,10 @@
+import React from "react";
+import * as Yup from "yup";
+import { useUpdateProductMutation } from "../products/productApi";
+import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
+import { Formik } from "formik";
+import toast from "react-hot-toast";
 import {
   Button,
   Input,
@@ -5,10 +12,6 @@ import {
   Select,
   Textarea,
 } from "@material-tailwind/react";
-import { Formik } from "formik";
-import { useSelector } from "react-redux";
-import * as Yup from "yup";
-import { useNavigate } from "react-router";
 import { baseUrl } from "../../app/mainApi";
 
 export const productSchema = Yup.object().shape({
@@ -28,13 +31,14 @@ export const productSchema = Yup.object().shape({
       );
     }),
 });
-
 export default function ProductEditForm({ product }) {
+  const [updateProduct, { isLoading }] = useUpdateProductMutation();
   const nav = useNavigate();
   const { user } = useSelector((state) => state.userSlice);
 
+  if (!product) return <p>Loading product...</p>;
   return (
-    <div className="max-w-[400px] mt-10">
+    <div className="max-w-[400px]">
       <Formik
         initialValues={{
           title: product.title,
@@ -50,14 +54,21 @@ export default function ProductEditForm({ product }) {
           formData.append("title", val.title);
           formData.append("description", val.description);
           formData.append("price", Number(val.price));
-          formData.append("image", val.image);
           formData.append("category", val.category);
           formData.append("brand", val.brand);
+
           try {
-            // handle API call
-          } catch (err) {
-            // handle error
-          }
+            if (val.image) {
+              formData.append("image", val.image);
+              await updateProduct({
+                id: product._id,
+                token: user.token,
+                body: formData,
+              }).unwrap();
+            }
+            toast.success("successfully updated");
+            nav(-1);
+          } catch (err) {}
         }}
         validationSchema={productSchema}
       >
@@ -81,7 +92,6 @@ export default function ProductEditForm({ product }) {
                 <p className="text-red-500">{errors.title}</p>
               )}
             </div>
-
             <div>
               <Input
                 onChange={handleChange}
@@ -98,7 +108,6 @@ export default function ProductEditForm({ product }) {
               <Select
                 value={values.category}
                 onChange={(e) => setFieldValue("category", e)}
-                label="Select Category"
               >
                 <Option value="men's clothing">Men's Clothing</Option>
                 <Option value="women's clothing">Women's Clothing</Option>
@@ -109,7 +118,6 @@ export default function ProductEditForm({ product }) {
                 <p className="text-red-700">{errors.category}</p>
               )}
             </div>
-
             <div>
               <Select
                 value={values.brand}
@@ -126,7 +134,6 @@ export default function ProductEditForm({ product }) {
                 <p className="text-red-500">{errors.brand}</p>
               )}
             </div>
-
             <div>
               <Textarea
                 onChange={handleChange}
@@ -141,29 +148,22 @@ export default function ProductEditForm({ product }) {
 
             <div>
               <Input
+                name="image"
+                type="file"
                 label="Image"
                 onChange={(e) => {
                   const file = e.target.files[0];
                   setFieldValue("imagePrev", URL.createObjectURL(file));
                   setFieldValue("image", file);
                 }}
-                name="image"
-                type="file"
               />
               {touched.image && errors.image && (
                 <p className="text-red-500">{errors.image}</p>
               )}
             </div>
-
             <div>
               {!errors.image && values.imagePrev && (
                 <img
-                  className="w-[200px] h-[200px] object-cover"
-                  // src={
-                  //   values.imagePrev?.startsWith("blob:")
-                  //     ? values.imagePrev
-                  //     : `${baseUrl}${values.imagePrev}`
-                  // }
                   src={
                     values.image
                       ? values.imagePrev
@@ -173,7 +173,6 @@ export default function ProductEditForm({ product }) {
                 />
               )}
             </div>
-
             <Button type="submit">Submit</Button>
           </form>
         )}

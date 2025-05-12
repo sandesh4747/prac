@@ -49,7 +49,7 @@ export const productApi = mainApi.injectEndpoints({
     updateProduct: builder.mutation({
       query: (q) => ({
         url: `/products/${q.id}`,
-        method: "PATCHE",
+        method: "PATCH",
         headers: {
           Authorization: q.token,
         },

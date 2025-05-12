@@ -4,9 +4,9 @@ import RootLayout from "./components/RootLayout";
 import { RouterProvider } from "react-router-dom";
 import Login from "./features/authentication/Login";
 import SignUp from "./features/authentication/SignUp";
-
-import Home from "./features/home/Home";
 import AdminPage from "./features/admin/AdminPage";
+import Home from "./features/home/Home";
+
 import ProductAddForm from "./features/admin/ProductAddForm";
 import ProductEdit from "./features/admin/ProductEdit";
 

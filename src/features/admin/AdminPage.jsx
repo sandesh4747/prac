@@ -1,10 +1,3 @@
-import React from "react";
-import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
-
-import {
-  useGetProductsQuery,
-  useRemoveProductMutation,
-} from "../products/productApi";
 import {
   Avatar,
   Button,
@@ -12,27 +5,25 @@ import {
   IconButton,
   Typography,
 } from "@material-tailwind/react";
+import { useGetProductsQuery } from "../products/productApi";
+import { NavLink } from "react-router";
 import { baseUrl } from "../../app/mainApi";
-import { NavLink, useNavigate } from "react-router";
-import RemoveButton from "./ReomveBUtton";
-
-const TABLE_HEAD = ["image", "tItle", "_id", "edit", "delete"];
+import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
+import RemoveButton from "./ReomveButton";
+const TABLE_HEAD = ["Name", "Job", "Employed", ""];
 
 export default function AdminPage() {
   const { isLoading, error, data } = useGetProductsQuery();
-
   if (isLoading) return <h1>Loading...</h1>;
 
   if (error) return <h1>{error}</h1>;
-
   return (
-    <div className="">
+    <div>
       <div className="flex justify-end my-5">
-        <NavLink to={"/addPrdouctForm"}>
-          <Button color="purple">Add Product</Button>
+        <NavLink to={"/add-product"}>
+          <Button>Add Product</Button>
         </NavLink>
       </div>
-
       <Card className="h-full w-full overflow-scroll">
         <table className="w-full min-w-max table-auto text-left">
           <thead>
@@ -54,7 +45,7 @@ export default function AdminPage() {
             </tr>
           </thead>
           <tbody>
-            {data.map(({ _id, image, title, name }, index) => {
+            {data.map(({ name, _id, image, title }, index) => {
               const isLast = index === data.length - 1;
               const classes = isLast
                 ? "p-4"
@@ -96,8 +87,7 @@ export default function AdminPage() {
                       </IconButton>
                     </NavLink>
                   </td>
-
-                  <td className={classes}>
+                  <td>
                     <RemoveButton id={_id} />
                   </td>
                 </tr>

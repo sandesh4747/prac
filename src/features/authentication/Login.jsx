@@ -76,7 +76,7 @@ export default function Login() {
       </Formik>
 
       <Typography color="gray" className="mt-6 text-center font-normal">
-        Don't have an account?{" "}
+        Don't have an account?
         <Button
           onClick={() => nav("/signup")}
           variant="text"

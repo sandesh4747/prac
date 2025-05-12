@@ -6,7 +6,6 @@ import {
   Textarea,
 } from "@material-tailwind/react";
 import { Formik } from "formik";
-import React from "react";
 import { useAddProductMutation } from "../products/productApi";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
@@ -17,7 +16,6 @@ export const productSchema = Yup.object().shape({
   title: Yup.string().required("title is required"),
   description: Yup.string().required("description is required"),
   price: Yup.number().required("price is required"),
-  //image: Yup.string().required('image is required'),
   category: Yup.string().required("category is required"),
   brand: Yup.string().required("brand is required"),
   image: Yup.mixed()
@@ -45,6 +43,7 @@ export default function ProductAddForm() {
           image: "",
           category: "",
           brand: "",
+          imagePrev: "",
         }}
         onSubmit={async (val) => {
           const formData = new FormData();
@@ -84,7 +83,7 @@ export default function ProductAddForm() {
                 name="title"
               />
               {touched.title && errors.title && (
-                <p className="text-red-700">{errors.title}</p>
+                <p className="text-red-500">{errors.title}</p>
               )}
             </div>
             <div>
@@ -94,10 +93,10 @@ export default function ProductAddForm() {
                 label="Price"
                 name="price"
               />
+              {touched.price && errors.price && (
+                <p className="text-red-500">{errors.price}</p>
+              )}
             </div>
-            {touched.price && errors.price && (
-              <p className="text-red-700">{errors.price}</p>
-            )}
 
             <div>
               <Select
@@ -109,10 +108,10 @@ export default function ProductAddForm() {
                 <Option value="jewelery">Jewelery</Option>
                 <Option value="electronics">Electronics</Option>
               </Select>
+              {touched.category && errors.category && (
+                <p className="text-red-500">{errors.category}</p>
+              )}
             </div>
-            {touched.category && errors.category && (
-              <p className="text-red-700">{errors.category}</p>
-            )}
             <div>
               <Select
                 onChange={(e) => setFieldValue("brand", e)}
@@ -124,10 +123,10 @@ export default function ProductAddForm() {
                 <Option value="Google">Google</Option>
                 <Option value="Tanishq">Tanishq</Option>
               </Select>
+              {touched.brand && errors.brand && (
+                <p className="text-red-500">{errors.brand}</p>
+              )}
             </div>
-            {touched.brand && errors.brand && (
-              <p className="text-red-700">{errors.brand}</p>
-            )}
 
             <Textarea
               onChange={handleChange}
@@ -136,8 +135,9 @@ export default function ProductAddForm() {
               name="description"
             />
             {touched.description && errors.description && (
-              <p className="text-red-700">{errors.description}</p>
+              <p className="text-red-500">{errors.description}</p>
             )}
+
             <div>
               <Input
                 label="Image"
@@ -150,7 +150,7 @@ export default function ProductAddForm() {
                 type="file"
               />
               {touched.image && errors.image && (
-                <p className="text-red-700">{errors.image}</p>
+                <p className="text-red-500">{errors.image}</p>
               )}
             </div>
             <div>
