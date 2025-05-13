@@ -20,16 +20,15 @@ export const productSchema = Yup.object().shape({
   price: Yup.number().required("price is required"),
   category: Yup.string().required("category is required"),
   brand: Yup.string().required("brand is required"),
-  image: Yup.mixed()
-    .required("image is required")
-    .test("fileType", "Unsupported File Format", (value) => {
-      return (
-        value &&
-        ["image/jpeg", "image/png", "image/jpg", "image/webp"].includes(
-          value.type
-        )
-      );
-    }),
+  image: Yup.mixed().test("fileType", "Unsupported File Format", (value) => {
+    if (!value) return true;
+    return (
+      value &&
+      ["image/jpeg", "image/png", "image/jpg", "image/webp"].includes(
+        value.type
+      )
+    );
+  }),
 });
 export default function ProductEditForm({ product }) {
   const [updateProduct, { isLoading }] = useUpdateProductMutation();
@@ -68,7 +67,11 @@ export default function ProductEditForm({ product }) {
             }
             toast.success("successfully updated");
             nav(-1);
-          } catch (err) {}
+          } catch (err) {
+            console.log(err);
+
+            toast.error(err.data?.message || err.data);
+          }
         }}
         validationSchema={productSchema}
       >

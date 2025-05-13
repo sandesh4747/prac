@@ -9,6 +9,8 @@ import Home from "./features/home/Home";
 
 import ProductAddForm from "./features/admin/ProductAddForm";
 import ProductEdit from "./features/admin/ProductEdit";
+import Product from "./features/products/Product";
+import CartPage from "./features/carts/CartPage";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -39,6 +41,14 @@ export default function App() {
         {
           path: "edit-product/:id",
           element: <ProductEdit />,
+        },
+        {
+          path: "products/:id",
+          element: <Product />,
+        },
+        {
+          path: "carts",
+          element: <CartPage />,
         },
       ],
     },

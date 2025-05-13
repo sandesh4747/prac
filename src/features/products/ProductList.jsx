@@ -2,8 +2,10 @@ import React from "react";
 
 import { Rating } from "@material-tailwind/react";
 import { useGetProductsQuery } from "./productApi";
+import { useNavigate } from "react-router";
 
 export default function ProductList() {
+  const nav = useNavigate();
   const { isLoading, error, data } = useGetProductsQuery();
   if (isLoading)
     return (
@@ -21,6 +23,7 @@ export default function ProductList() {
       {data &&
         data.map(({ title, rating, price, _id, image }) => (
           <div
+            onClick={() => nav(`/products/${_id}`)}
             key={_id}
             className="bg-white rounded-xl overflow-hidden shadow hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out cursor-pointer"
           >
