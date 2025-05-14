@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useGetProductQuery } from "./productApi";
-import { Button, Card, IconButton, Rating } from "@material-tailwind/react";
+import { Button, IconButton, Rating } from "@material-tailwind/react";
 import { PlusIcon, MinusIcon } from "@heroicons/react/24/solid";
 import { useDispatch, useSelector } from "react-redux";
 import { setToCart } from "../carts/cartSlice";
@@ -10,67 +10,40 @@ export default function Product() {
   const { id } = useParams();
   const { data, isLoading, error } = useGetProductQuery(id);
 
-  if (isLoading)
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-      </div>
-    );
-
-  if (error)
-    return (
-      <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mx-auto max-w-md mt-8">
-        <p className="font-bold">Error</p>
-        <p>{error}</p>
-      </div>
-    );
-
+  if (isLoading) return <div className="p-8 text-center">Loading...</div>;
+  if (error) return <div className="p-8 text-red-500">Error: {error}</div>;
+  // console.log(data);
   return (
-    <div className="max-w-4xl mx-auto p-4 md:p-6 lg:p-8">
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-        {/* Image Section */}
-        <div className="h-64 md:h-80 lg:h-96 w-full overflow-hidden bg-gray-100">
+    <div className="max-w-4xl mx-auto p-4">
+      <div className="flex flex-col md:flex-row gap-6">
+        {/* Product Image */}
+        <div className="md:w-1/2 bg-gray-100 rounded-lg p-4 flex items-center justify-center">
           <img
-            className="h-full w-full object-contain p-4"
+            className="max-h-80 object-contain"
             src={`http://localhost:5000${data.image}`}
             alt={data.title}
           />
         </div>
 
-        {/* Product Info Section */}
-        <div className="p-6">
-          <div className="flex justify-between items-start">
-            <div>
-              <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">
-                {data.category}
-              </span>
-              <h2 className="text-xl md:text-2xl font-bold text-gray-800 mt-2">
-                {data.title}
-              </h2>
-              <p className="text-gray-600 text-sm mt-1">{data.brand}</p>
-            </div>
-            <p className="text-blue-600 font-bold text-xl md:text-2xl">
-              ${data.price}
-            </p>
+        {/* Product Details */}
+        <div className="md:w-1/2 space-y-4">
+          <h1 className="text-2xl font-bold">{data.title}</h1>
+          <div className="flex items-center gap-2">
+            <Rating value={Math.round(data.rating)} />
+            <span>({data.rating.toFixed(1)})</span>
           </div>
 
-          <div className="mt-4 flex items-center">
-            <Rating
-              value={Math.round(data.rating)}
-              readonly
-              className="flex items-center"
-            />
-            <span className="text-gray-600 text-sm ml-2">
-              ({data.rating.toFixed(1)})
-            </span>
+          <div className="text-lg font-semibold">${data.price}</div>
+
+          <div className="text-sm text-gray-600">
+            <span className="font-medium">Brand:</span> {data.brand}
           </div>
 
-          <div className="mt-6 border-t border-gray-200 pt-4">
-            <h3 className="text-lg font-semibold text-gray-800">Description</h3>
-            <p className="text-gray-600 mt-2 leading-relaxed">
-              {data.description}
-            </p>
+          <div className="text-sm text-gray-600">
+            <span className="font-medium">Category:</span> {data.category}
           </div>
+
+          <p className="text-gray-700">{data.description}</p>
 
           <ProductAddToCart product={data} />
         </div>
@@ -82,26 +55,22 @@ export default function Product() {
 function ProductAddToCart({ product }) {
   const nav = useNavigate();
   const { carts } = useSelector((state) => state.cartSlice);
-  // console.log(carts);
   const isExistCart = carts.find((cart) => cart._id === product._id);
   const { user } = useSelector((state) => state.userSlice);
-  // console.log(user);
   const [count, setCount] = useState(isExistCart?.qty || 1);
   const dispatch = useDispatch();
+
   const handleCart = () => {
     dispatch(
       setToCart({
         title: product.title,
         image: product.image,
         price: product.price,
-        qty: count,
+        qty: count, // <-- this is added manually by US ,there is no such field as qty in database
         _id: product._id,
       })
     );
-    nav("/carts");
-  };
-  /*   
-  this just to check the values of below fields
+    /* this just to check the values of below fields
   const h = () => {
     const cartItem = {
       title: product.title,
@@ -112,27 +81,34 @@ function ProductAddToCart({ product }) {
     };
     console.log(cartItem);
   };
-  h();*/
+  h();
+*/
+    nav("/carts");
+  };
 
   return (
-    <Card className="flex items-center space-y-7 justify-center">
-      <h1>Product Add</h1>
-      <div className="flex gap-3">
+    <div className="mt-6 space-y-4">
+      <div className="flex items-center gap-4">
         <IconButton
+          variant="outlined"
           disabled={count === 1}
-          size="sm"
           onClick={() => setCount((c) => c - 1)}
         >
-          <MinusIcon className="h-10 w-5" />
+          <MinusIcon className="h-4 w-4" />
         </IconButton>
-        <h1>{count}</h1>
-        <IconButton size="sm" onClick={() => setCount((c) => c + 1)}>
-          <PlusIcon className="h-10 w-5" />
+        <span className="w-8 text-center">{count}</span>
+        <IconButton variant="outlined" onClick={() => setCount((c) => c + 1)}>
+          <PlusIcon className="h-4 w-4" />
         </IconButton>
       </div>
-      <Button onClick={handleCart} disabled={!user || user?.role === "Admin"}>
-        Add To Cart
+
+      <Button
+        fullWidth
+        onClick={handleCart}
+        disabled={!user || user?.role === "Admin"}
+      >
+        Add to Cart
       </Button>
-    </Card>
+    </div>
   );
 }
