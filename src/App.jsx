@@ -11,6 +11,7 @@ import ProductAddForm from "./features/admin/ProductAddForm";
 import ProductEdit from "./features/admin/ProductEdit";
 import Product from "./features/products/Product";
 import CartPage from "./features/carts/CartPage";
+import UserProfile from "./features/user/UserProfile";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -49,6 +50,10 @@ export default function App() {
         {
           path: "carts",
           element: <CartPage />,
+        },
+        {
+          path: "user-profile",
+          element: <UserProfile />,
         },
       ],
     },

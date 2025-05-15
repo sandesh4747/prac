@@ -5,6 +5,8 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { Formik } from "formik";
+import { LockClosedIcon, LockOpenIcon } from "@heroicons/react/24/solid";
+
 import React, { useState } from "react";
 import { useUserLoginMutation } from "./authApi";
 import toast from "react-hot-toast";
@@ -43,6 +45,7 @@ export default function Login() {
                 value={values.email}
                 label="Email"
                 name="email"
+                autoComplete="username"
               />
             </div>
             <div className="relative flex w-full ">
@@ -52,7 +55,9 @@ export default function Login() {
                 value={values.password}
                 type={show ? "text" : "password"}
                 label="Password"
+                icon={<></>}
                 className="pr-20"
+                autoComplete="current-password"
                 containerProps={{
                   className: "min-w-0",
                 }}
@@ -64,7 +69,11 @@ export default function Login() {
                 size="sm"
                 className="!absolute right-1 top-1 rounded"
               >
-                <i className={show ? "fas fa-unlock" : "fas fa-lock"} />
+                {show ? (
+                  <LockOpenIcon className="h-5 w-5" />
+                ) : (
+                  <LockClosedIcon className="h-5 w-5" />
+                )}
               </IconButton>
             </div>
 

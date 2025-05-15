@@ -102,6 +102,14 @@ function ProductAddToCart({ product }) {
         </IconButton>
       </div>
 
+      {/* Tooltip-like message */}
+      {/* {(!user || user?.role === "Admin") && (
+        <div className="text-sm text-red-500 text-center">
+          {!user
+            ? "Please log in to add items to cart."
+            : "Admins cannot add items to cart."}
+        </div>
+      )} */}
       <Button
         fullWidth
         onClick={handleCart}

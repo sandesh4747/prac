@@ -2,6 +2,18 @@
 
 @config "../tailwind.config.js";
 
+/* Hide the default password toggle in Edge */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+/* Hide the default password toggle in other browsers */
+input[type="password"] {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
 @theme {
   /* --color-*: initial; */
   --color-primary: red;

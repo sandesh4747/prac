@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useUserSignUpMutation } from "./authApi";
 import { useNavigate } from "react-router";
+import { LockClosedIcon, LockOpenIcon } from "@heroicons/react/24/solid";
 
 export default function SignUp() {
   const nav = useNavigate();
@@ -17,7 +18,7 @@ export default function SignUp() {
   const [userSignUp, { isLoading }] = useUserSignUpMutation();
   const [show, setShow] = useState(false);
   return (
-    <div className="max-w-[400px]">
+    <div className="max-w-[400px] mt-20 mx-auto">
       <Formik
         initialValues={{
           username: "",
@@ -50,6 +51,7 @@ export default function SignUp() {
                 value={values.email}
                 label="Email"
                 name="email"
+                autoComplete="email"
               />
             </div>
             <div className="relative flex w-full ">
@@ -59,6 +61,7 @@ export default function SignUp() {
                 value={values.password}
                 type={show ? "text" : "password"}
                 label="Password"
+                autoComplete="new-password"
                 className="pr-20"
                 containerProps={{
                   className: "min-w-0",
@@ -71,7 +74,11 @@ export default function SignUp() {
                 size="sm"
                 className="!absolute right-1 top-1 rounded"
               >
-                <i className={show ? "fas fa-unlock" : "fas fa-lock"} />
+                {show ? (
+                  <LockOpenIcon className="h-5 w-5" />
+                ) : (
+                  <LockClosedIcon className="h-5 w-5" />
+                )}
               </IconButton>
             </div>
 

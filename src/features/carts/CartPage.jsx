@@ -1,79 +1,98 @@
 import { Avatar, Card, IconButton, Typography } from "@material-tailwind/react";
 import { useDispatch, useSelector } from "react-redux";
 import { baseUrl } from "../../app/mainApi";
-import { setToCart } from "./cartSlice";
-import { MinusIcon, PlusIcon } from "@heroicons/react/24/solid";
+import { removeFromCart, setToCart } from "./cartSlice";
+import {
+  MinusIcon,
+  PlusIcon,
+  TrashIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/solid";
 const TABLE_HEAD = ["Items", "Price", "Quantity", "Total"];
 
 export default function CartPage() {
+  const dispatch = useDispatch();
   const { carts } = useSelector((state) => state.cartSlice);
   // console.log(carts);
   return (
     <div className="p-5">
-      <Card className="h-full w-full overflow-scroll">
-        <table className="w-full min-w-max table-auto text-left">
-          <thead>
-            <tr>
-              {TABLE_HEAD.map((head) => (
-                <th
-                  key={head}
-                  className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
-                >
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-normal leading-none opacity-70"
+      {carts.length === 0 && (
+        <h1 className="text-center text-3xl">No Items in Cart</h1>
+      )}
+      {carts.length > 0 && (
+        <Card className="h-full w-full overflow-scroll">
+          <table className="w-full min-w-max table-auto text-left">
+            <thead>
+              <tr>
+                {TABLE_HEAD.map((head) => (
+                  <th
+                    key={head}
+                    className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
                   >
-                    {head}
-                  </Typography>
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {carts.map(({ title, image, price, qty, _id }, index) => {
-              const isLast = index === carts.length - 1;
-              const classes = isLast
-                ? "p-4"
-                : "p-4 border-b border-blue-gray-50";
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal leading-none opacity-70"
+                    >
+                      {head}
+                    </Typography>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {carts.map(({ title, image, price, qty, _id }, index) => {
+                const isLast = index === carts.length - 1;
+                const classes = isLast
+                  ? "p-4"
+                  : "p-4 border-b border-blue-gray-50";
 
-              return (
-                <tr key={_id}>
-                  <td className={classes}>
-                    <div className="flex items-center gap-3">
-                      <Avatar src={`${baseUrl}${image}`} />
+                return (
+                  <tr key={_id}>
+                    <td className={classes}>
+                      <div className="flex items-center gap-3">
+                        <Avatar src={`${baseUrl}${image}`} />
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal"
+                        >
+                          {title}
+                        </Typography>
+                      </div>
+                    </td>
+                    <td className={classes}>
                       <Typography
                         variant="small"
                         color="blue-gray"
                         className="font-normal"
                       >
-                        {title}
+                        $ {price}
                       </Typography>
-                    </div>
-                  </td>
-                  <td className={classes}>
-                    <Typography
-                      variant="small"
-                      color="blue-gray"
-                      className="font-normal"
-                    >
-                      {price}
-                    </Typography>
-                  </td>
-                  <td className={classes}>
-                    <UpdateToCart product={{ title, image, price, qty, _id }} />
-                  </td>
-                  <td className={classes}>
-                    <div>
-                      <Typography>Rs. {price * qty}</Typography>
-                    </div>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </Card>
+                    </td>
+                    <td className={classes}>
+                      <UpdateToCart
+                        product={{ title, image, price, qty, _id }}
+                      />
+                    </td>
+                    <td className={classes}>
+                      <div className="flex items-center gap-3">
+                        <Typography>$ {price * qty}</Typography>
+                        <IconButton
+                          onClick={() => dispatch(removeFromCart({ _id }))}
+                          variant="text"
+                        >
+                          <XMarkIcon className="h-4 w-4" />
+                        </IconButton>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </Card>
+      )}
     </div>
   );
 }
@@ -92,18 +111,19 @@ The last occurrence wins — it overwrites the original qty.
     );
   };
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-4 items-center">
       <IconButton
         onClick={() => handleCart(false)}
         disabled={product.qty === 1}
         size="sm"
+        variant="text"
       >
-        <MinusIcon className="h-5 w-5" />
+        <MinusIcon className="h-4 w-4" />
       </IconButton>
 
-      <h1>{product.qty}</h1>
-      <IconButton onClick={() => handleCart(true)} size="sm">
-        <PlusIcon className="h-5 w-5" />
+      <span>{product.qty}</span>
+      <IconButton variant="text" onClick={() => handleCart(true)} size="sm">
+        <PlusIcon className="h-4 w-4" />
       </IconButton>
     </div>
   );
