@@ -12,13 +12,7 @@ export default function Top5Products() {
         Loading...
       </div>
     );
-  if (error)
-    return (
-      <div className="h-[400px] flex items-center justify-center">
-        Error loading products
-      </div>
-    );
-
+  if (error) return <h1>{error.data?.message || error?.error}</h1>;
   return (
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-2xl font-bold mb-6 text-center">Featured Products</h2>

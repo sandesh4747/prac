@@ -5,15 +5,13 @@ import { Formik } from "formik";
 import toast from "react-hot-toast";
 import { Button, Input } from "@material-tailwind/react";
 
-export default function UserProfile() {
-  const { user } = useSelector((state) => state.userSlice);
+export default function UserProfile({ user }) {
   const { data, isLoading, error } = useGetUserQuery(user.token);
   const [updateUser, { isLoading: updateLoading }] = useUpdateUserMutation();
   if (isLoading) return <h1>Loading...</h1>;
-  if (error) return <h1>{error}</h1>;
-  console.log(data);
+  if (error) return <h1>{error.data?.message || error?.error}</h1>;
   return (
-    <div className="p-5 max-w-[400px]">
+    <div>
       <Formik
         initialValues={{
           username: data.username,

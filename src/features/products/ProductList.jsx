@@ -11,12 +11,7 @@ export default function ProductList() {
     return (
       <h1 className="text-xl font-semibold text-center mt-10">Loading..,</h1>
     );
-  if (error)
-    return (
-      <h1 className="text-xl font-semibold text-center mt-10 text-red-600">
-        {error}
-      </h1>
-    );
+  if (error) return <h1>{error.data?.message || error?.error}</h1>;
   // console.log(data);
 
   return (

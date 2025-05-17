@@ -95,18 +95,15 @@ export default function ProfileMenu({ user }) {
                 switch (label) {
                   case "Sign Out":
                     dispatch(removeUser());
-
                     break;
                   case "Admin Dashboard":
                     navigate("/admin-page");
-
                     break;
                   case "Cart":
                     navigate("/carts");
                     break;
                   case "Profile":
                     navigate("/user-profile");
-                    break;
                 }
                 closeMenu();
               }}

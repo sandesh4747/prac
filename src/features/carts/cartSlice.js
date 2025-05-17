@@ -21,11 +21,12 @@ export const cartSlice = createSlice({
       setCartsToLocal(state.carts);
     },
     removeFromCart: (state, action) => {
-      state.carts = state.carts.filter(
-        (cart) => cart._id !== action.payload._id
-      );
+      state.carts = state.carts.filter((cart) => cart._id !== action.payload);
       setCartsToLocal(state.carts);
+    },
+    clearCart: (state) => {
+      (state.carts = []), setCartsToLocal(state.carts);
     },
   },
 });
-export const { removeFromCart, setToCart } = cartSlice.actions;
+export const { removeFromCart, setToCart, clearCart } = cartSlice.actions;

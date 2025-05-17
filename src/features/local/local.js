@@ -16,3 +16,6 @@ export const getCartsFromLocal = () => {
   const carts = localStorage.getItem("carts");
   return carts === null ? [] : JSON.parse(carts);
 };
+export const clearCartsFromLocal = () => {
+  localStorage.removeItem("carts");
+};
