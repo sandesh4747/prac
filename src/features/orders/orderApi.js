@@ -22,7 +22,7 @@ const orderApi = mainApi.injectEndpoints({
         },
         method: "POST",
       }),
-      providesTags: ["User"],
+      providesTags: ["Order"],
     }),
   }),
 });

@@ -11,7 +11,7 @@ export default function Product() {
   const { data, isLoading, error } = useGetProductQuery(id);
 
   if (isLoading) return <div className="p-8 text-center">Loading...</div>;
-  if (error) return <h1>{error.data?.message || error?.error}</h1>;
+  if (error) return <h1>{error.message || error.error}</h1>;
   // console.log(data);
   return (
     <div className="max-w-4xl mx-auto p-4">
