@@ -12,6 +12,8 @@ import ProductEdit from "./features/admin/ProductEdit";
 import Product from "./features/products/Product";
 import CartPage from "./features/carts/CartPage";
 import ProfileMainPage from "./features/user/ProfileMainPage";
+import OrderDetail from "./features/orders/OrderDetail";
+import AdminRoute from "./components/AdminRoute";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -31,18 +33,7 @@ export default function App() {
           path: "signup",
           element: <SignUp />,
         },
-        {
-          path: "admin-page",
-          element: <AdminPage />,
-        },
-        {
-          path: "addPrdouctForm",
-          element: <ProductAddForm />,
-        },
-        {
-          path: "edit-product/:id",
-          element: <ProductEdit />,
-        },
+
         {
           path: "products/:id",
           element: <Product />,
@@ -54,6 +45,27 @@ export default function App() {
         {
           path: "user-profile",
           element: <ProfileMainPage />,
+        },
+        {
+          path: "orders/:id",
+          element: <OrderDetail />,
+        },
+        {
+          element: <AdminRoute />,
+          children: [
+            {
+              path: "admin-page",
+              element: <AdminPage />,
+            },
+            {
+              path: "addPrdouctForm",
+              element: <ProductAddForm />,
+            },
+            {
+              path: "edit-product/:id",
+              element: <ProductEdit />,
+            },
+          ],
         },
       ],
     },

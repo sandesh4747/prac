@@ -37,7 +37,7 @@ export default function ProductEditForm({ product }) {
 
   if (!product) return <p>Loading product...</p>;
   return (
-    <div className="max-w-[400px]">
+    <div className="max-w-[400px] mt-10 pb-5">
       <Formik
         initialValues={{
           title: product.title,
@@ -64,12 +64,16 @@ export default function ProductEditForm({ product }) {
                 token: user.token,
                 body: formData,
               }).unwrap();
+            } else {
+              await updateProduct({
+                id: product._id,
+                token: user?.token,
+                body: formData,
+              }).unwrap();
             }
             toast.success("successfully updated");
             nav(-1);
           } catch (err) {
-            console.log(err);
-
             toast.error(err.data?.message || err.data);
           }
         }}

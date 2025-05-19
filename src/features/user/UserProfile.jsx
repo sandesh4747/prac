@@ -1,15 +1,14 @@
-import React from "react";
-import { useGetUserQuery, userApi, useUpdateUserMutation } from "./userApi";
-import { useSelector } from "react-redux";
+import { useGetUserQuery, useUpdateUserMutation } from "./userApi.js";
 import { Formik } from "formik";
-import toast from "react-hot-toast";
 import { Button, Input } from "@material-tailwind/react";
+import toast from "react-hot-toast";
 
 export default function UserProfile({ user }) {
   const { data, isLoading, error } = useGetUserQuery(user.token);
   const [updateUser, { isLoading: updateLoading }] = useUpdateUserMutation();
   if (isLoading) return <h1>Loading...</h1>;
   if (error) return <h1>{error.data?.message || error?.error}</h1>;
+
   return (
     <div>
       <Formik
@@ -20,7 +19,6 @@ export default function UserProfile({ user }) {
         onSubmit={async (val) => {
           try {
             await updateUser({
-              // these all are sent to q in updateUser in userApi
               token: user.token,
               body: {
                 username: val.username,
@@ -33,7 +31,7 @@ export default function UserProfile({ user }) {
           }
         }}
       >
-        {({ handleChange, handleSubmit, values }) => (
+        {({ handleSubmit, handleChange, values }) => (
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <Input
@@ -51,7 +49,7 @@ export default function UserProfile({ user }) {
                 onChange={handleChange}
               />
             </div>
-            <Button type="submit" loading={updateLoading}>
+            <Button loading={updateLoading} type="submit">
               Submit
             </Button>
           </form>

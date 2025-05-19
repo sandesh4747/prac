@@ -7,7 +7,6 @@ import { NavLink, useNavigate } from "react-router";
 export default function Header() {
   const nav = useNavigate();
   const { user } = useSelector((state) => state.userSlice);
-  console.log(user);
 
   return (
     <Navbar className=" p-2 ">

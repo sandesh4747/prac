@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { useGetUserOrderQuery } from "./orderApi.js";
 import { Button, Card, Typography } from "@material-tailwind/react";
 const TABLE_HEAD = ["OrderId", "OrderDate", "TotalAmount", "Order Detail"];
@@ -7,7 +8,7 @@ export default function OrderPage({ user }) {
 
   if (isLoading) return <h1>Loading...</h1>;
   if (error) return <h1>{error.data?.message || error?.error}</h1>;
-
+  console.log(data);
   return (
     <div className="col-span-2">
       <Card className="h-full w-full overflow-scroll">
@@ -38,7 +39,7 @@ export default function OrderPage({ user }) {
                 : "p-4 border-b border-blue-gray-50";
 
               return (
-                <tr key={name}>
+                <tr key={_id}>
                   <td className={classes}>
                     <Typography
                       variant="small"
@@ -67,9 +68,11 @@ export default function OrderPage({ user }) {
                     </Typography>
                   </td>
                   <td className={classes}>
-                    <Button size="sm" variant="text">
-                      View Detail
-                    </Button>
+                    <Link to={`/orders/${_id}`}>
+                      <Button size="sm" variant="text">
+                        View Detail
+                      </Button>
+                    </Link>
                   </td>
                 </tr>
               );
