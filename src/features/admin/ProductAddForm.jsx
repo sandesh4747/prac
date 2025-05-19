@@ -9,24 +9,24 @@ import { Formik } from "formik";
 import { useAddProductMutation } from "../products/productApi";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
-// import * as Yup from "yup";
+import * as Yup from "yup";
 import { useNavigate } from "react-router";
 
-// export const productSchema = Yup.object().shape({
-//   title: Yup.string().required("title is required"),
-//   description: Yup.string().required("description is required"),
-//   price: Yup.number().required("price is required"),
-//   category: Yup.string().required("category is required"),
-//   brand: Yup.string().required("brand is required"),
-//   image: Yup.mixed()
-//     .required("image is required")
-//     .test("fileType", "Unsupported File Format", (value) => {
-//       console.log(value);
-//       return ["image/jpeg", "image/png", "image/jpg", "image/webp"].includes(
-//         value.type
-//       );
-//     }),
-// });
+export const productSchema = Yup.object().shape({
+  title: Yup.string().required("title is required"),
+  description: Yup.string().required("description is required"),
+  price: Yup.number().required("price is required"),
+  category: Yup.string().required("category is required"),
+  brand: Yup.string().required("brand is required"),
+  image: Yup.mixed()
+    .required("image is required")
+    .test("fileType", "Unsupported File Format", (value) => {
+      console.log(value);
+      return ["image/jpeg", "image/png", "image/jpg", "image/webp"].includes(
+        value.type
+      );
+    }),
+});
 
 export default function ProductAddForm() {
   const nav = useNavigate();
@@ -64,7 +64,7 @@ export default function ProductAddForm() {
             toast.error(err.data?.message || err.data);
           }
         }}
-        // validationSchema={productSchema}
+        validationSchema={productSchema}
       >
         {({
           handleSubmit,
