@@ -64,7 +64,7 @@ export default function ProductAddForm() {
             toast.error(err.data?.message || err.data);
           }
         }}
-        validationSchema={productSchema}
+        // validationSchema={productSchema}
       >
         {({
           handleSubmit,
