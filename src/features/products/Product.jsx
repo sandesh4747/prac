@@ -5,6 +5,7 @@ import { Button, IconButton, Rating } from "@material-tailwind/react";
 import { PlusIcon, MinusIcon } from "@heroicons/react/24/solid";
 import { useDispatch, useSelector } from "react-redux";
 import { setToCart } from "../carts/cartSlice";
+import { baseUrl } from "../../app/mainApi";
 
 export default function Product() {
   const { id } = useParams();

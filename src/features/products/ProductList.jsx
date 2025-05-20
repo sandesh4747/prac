@@ -3,6 +3,7 @@ import React from "react";
 import { Rating } from "@material-tailwind/react";
 import { useGetProductsQuery } from "./productApi";
 import { useNavigate } from "react-router";
+import { baseUrl } from "../../app/mainApi";
 
 export default function ProductList() {
   const nav = useNavigate();
