@@ -1,5 +1,6 @@
 import React from "react";
-import { useLocation } from "react-router";
+import { useSelector } from "react-redux";
+import { Navigate, Outlet, useLocation } from "react-router";
 
 export default function UserRoute() {
   const location = useLocation();
