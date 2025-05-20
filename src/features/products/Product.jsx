@@ -20,7 +20,7 @@ export default function Product() {
         <div className="md:w-1/2 bg-gray-100 rounded-lg p-4 flex items-center justify-center">
           <img
             className="max-h-80 object-contain"
-            src={`http://localhost:5000${data.image}`}
+            src={`${baseUrl}${data.image}`}
             alt={data.title}
           />
         </div>

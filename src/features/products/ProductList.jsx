@@ -26,7 +26,7 @@ export default function ProductList() {
             <div className="h-48 w-full overflow-hidden">
               <img
                 className="h-full w-full object-cover"
-                src={`http://localhost:5000${image}`}
+                src={`${baseUrl}${image}`}
                 alt={title}
               />
             </div>
