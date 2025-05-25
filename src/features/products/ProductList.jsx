@@ -36,7 +36,7 @@ export default function ProductList() {
                 {title}
               </h2>
               <p className="text-blue-600 font-bold text-lg">{price}</p>
-              <Rating size="sm" className="mt-1">
+              <Rating size="sm" className="mt-1" readonly>
                 {rating}
               </Rating>
             </div>

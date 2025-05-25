@@ -8,7 +8,7 @@ export default function OrderPage({ user }) {
 
   if (isLoading) return <h1>Loading...</h1>;
   if (error) return <h1>{error.data?.message || error?.error}</h1>;
-  console.log(data);
+
   return (
     <div className="col-span-2">
       <Card className="h-full w-full overflow-scroll">

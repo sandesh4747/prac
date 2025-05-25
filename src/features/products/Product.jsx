@@ -6,8 +6,11 @@ import { PlusIcon, MinusIcon } from "@heroicons/react/24/solid";
 import { useDispatch, useSelector } from "react-redux";
 import { setToCart } from "../carts/cartSlice";
 import { baseUrl } from "../../app/mainApi";
+import AddReview from "../user/AddReview";
+import ReviewList from "../user/ReviewList";
 
 export default function Product() {
+  const { user } = useSelector((state) => state.userSlice);
   const { id } = useParams();
   const { data, isLoading, error } = useGetProductQuery(id);
 
@@ -15,40 +18,44 @@ export default function Product() {
   if (error) return <h1>{error.message || error.error}</h1>;
   // console.log(data);
   return (
-    <div className="max-w-4xl mx-auto p-4">
-      <div className="flex flex-col md:flex-row gap-6">
-        {/* Product Image */}
-        <div className="md:w-1/2 bg-gray-100 rounded-lg p-4 flex items-center justify-center">
-          <img
-            className="max-h-80 object-contain"
-            src={`${baseUrl}${data.image}`}
-            alt={data.title}
-          />
-        </div>
-
-        {/* Product Details */}
-        <div className="md:w-1/2 space-y-4">
-          <h1 className="text-2xl font-bold">{data.title}</h1>
-          <div className="flex items-center gap-2">
-            <Rating value={Math.round(data.rating)} />
-            <span>({data.rating.toFixed(1)})</span>
+    <div>
+      <div className="max-w-4xl mx-auto p-4">
+        <div className="flex flex-col md:flex-row gap-6">
+          {/* Product Image */}
+          <div className="md:w-1/2 bg-gray-100 rounded-lg p-4 flex items-center justify-center">
+            <img
+              className="max-h-80 object-contain"
+              src={`${baseUrl}${data.image}`}
+              alt={data.title}
+            />
           </div>
 
-          <div className="text-lg font-semibold">${data.price}</div>
+          {/* Product Details */}
+          <div className="md:w-1/2 space-y-4">
+            <h1 className="text-2xl font-bold">{data.title}</h1>
+            <div className="flex items-center gap-2">
+              <Rating value={Math.round(data.rating)} readonly />
+              <span>({data.rating.toFixed(1)})</span>
+            </div>
 
-          <div className="text-sm text-gray-600">
-            <span className="font-medium">Brand:</span> {data.brand}
+            <div className="text-lg font-semibold">${data.price}</div>
+
+            <div className="text-sm text-gray-600">
+              <span className="font-medium">Brand:</span> {data.brand}
+            </div>
+
+            <div className="text-sm text-gray-600">
+              <span className="font-medium">Category:</span> {data.category}
+            </div>
+
+            <p className="text-gray-700">{data.description}</p>
+
+            <ProductAddToCart product={data} />
           </div>
-
-          <div className="text-sm text-gray-600">
-            <span className="font-medium">Category:</span> {data.category}
-          </div>
-
-          <p className="text-gray-700">{data.description}</p>
-
-          <ProductAddToCart product={data} />
         </div>
       </div>
+      {user && user?.role === "User" && <AddReview id={data._id} />}
+      <ReviewList product={data} />
     </div>
   );
 }
@@ -112,6 +119,7 @@ function ProductAddToCart({ product }) {
         </div>
       )} */}
       <Button
+        className="min-w-70"
         fullWidth
         onClick={handleCart}
         disabled={!user || user?.role === "Admin"}

@@ -7,6 +7,7 @@ export const authApi = mainApi.injectEndpoints({
       query: (val) => ({
         url: "/users/login",
         body: val,
+
         method: "POST",
       }),
     }),
@@ -15,6 +16,7 @@ export const authApi = mainApi.injectEndpoints({
       query: (val) => ({
         url: "/users/register",
         body: val,
+
         method: "POST",
       }),
     }),

@@ -11,7 +11,10 @@ export default function RemoveButton({ id }) {
 
   const handleRemove = async () => {
     try {
-      await removeProduct({ id, token: user?.token }).unwrap();
+      await removeProduct({
+        id,
+        // token: user?.token
+      }).unwrap();
       toast.success("successfully removed");
     } catch (err) {
       toast.error(err.data?.message || err.data);

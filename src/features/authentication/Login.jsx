@@ -29,7 +29,7 @@ export default function Login() {
         onSubmit={async (val) => {
           try {
             const response = await userLogin(val).unwrap();
-            console.log(response);
+
             dispatch(setUser(response));
             toast.success("successfully login");
             nav(-1);

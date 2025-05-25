@@ -10,6 +10,7 @@ export const productApi = mainApi.injectEndpoints({
       }),
       providesTags: ["Product"],
     }),
+
     getProduct: builder.query({
       query: (id) => ({
         url: `/products/${id}`,
@@ -28,31 +29,45 @@ export const productApi = mainApi.injectEndpoints({
     addProduct: builder.mutation({
       query: (query) => ({
         url: "/products",
-        body: query.body,
         method: "POST",
+        body: query.body,
         headers: {
           Authorization: query.token,
         },
       }),
       invalidatesTags: ["Product"],
     }),
-    removeProduct: builder.mutation({
-      query: (q) => ({
-        url: `/products/${q.id}`,
-        method: "DELETE",
-        headers: {
-          Authorization: q.token,
-        },
-      }),
-      invalidatesTags: ["Product"],
-    }),
+
     updateProduct: builder.mutation({
       query: (q) => ({
         url: `/products/${q.id}`,
         method: "PATCH",
-        headers: {
-          Authorization: q.token,
-        },
+        body: q.body,
+        // headers: {
+        //   Authorization: q.token,
+        // },
+      }),
+      invalidatesTags: ["Product"],
+    }),
+
+    removeProduct: builder.mutation({
+      query: (q) => ({
+        url: `/products/${q.id}`,
+        method: "DELETE",
+        // headers: {
+        //   Authorization: q.token,
+        // },
+      }),
+      invalidatesTags: ["Product"],
+    }),
+    addReview: builder.mutation({
+      query: (q) => ({
+        url: `/products/reviews/${q.id}`,
+        body: q.body,
+        method: "PATCH",
+        // headers: {
+        //   Authorization: q.token,
+        // },
       }),
       invalidatesTags: ["Product"],
     }),
@@ -64,6 +79,7 @@ export const {
   useGetTop5ProductsQuery,
   useAddProductMutation,
   useRemoveProductMutation,
-  useUpdateProductMutation,
   useGetProductQuery,
+  useUpdateProductMutation,
+  useAddReviewMutation,
 } = productApi;
