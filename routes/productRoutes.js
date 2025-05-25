@@ -5,16 +5,15 @@ import {
   getProducts,
   getTop5,
   removeProduct,
+  reviewProduct,
   updateProduct,
 } from "../controllers/productController.js";
-
-import { fileCheck } from "../middlewares/checkFile.js";
-import { updateFileCheck } from "../middlewares/checkFile.js";
+import { fileCheck, updateFileCheck } from "../middlewares/checkFile.js";
 import { notAllowed } from "../utils/shareFunc.js";
 import { checkId } from "../middlewares/checkId.js";
-
 import { productValSchema, validates } from "../utils/validator.js";
 import { adminCheck, userCheck } from "../middlewares/userCheck.js";
+import cookieParser from "cookie-parser";
 
 const router = express.Router();
 
@@ -31,6 +30,7 @@ router
   .all(notAllowed);
 
 router.route("/top-5").get(getTop5, getProducts).all(notAllowed);
+router.route("/reviews/:id").patch(checkId, reviewProduct).all(notAllowed);
 
 router
   .route("/:id")

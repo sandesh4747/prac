@@ -6,6 +6,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import fileUpload from "express-fileupload";
 import orderRoutes from "./routes/orderRoutes.js";
+import cookieParser from "cookie-parser";
 const app = express();
 
 //data base connect
@@ -22,9 +23,25 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+app.use(cookieParser());
 
 //middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:5173"],
+    methods: ["GET", "POST", "PATCH", "DELETE", "PUT"],
+    credentials: true,
+  })
+);
+app.options(
+  "*",
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PATCH", "DELETE", "PUT"],
+    credentials: true,
+  })
+);
+
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(

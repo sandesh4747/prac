@@ -3,7 +3,7 @@ import fs from "fs";
 import mongoose from "mongoose";
 
 export const getTop5 = (req, res, next) => {
-  req.query.rating = { $gt: 4.5 };
+  req.query.rating = { $gte: 4 };
   req.query.limit = 5;
   next();
 };
@@ -122,6 +122,26 @@ export const removeProduct = async (req, res) => {
       await Product.findByIdAndDelete(product._id);
     });
     return res.status(200).json({ message: "product removed successfully" });
+  } catch (err) {
+    return res.status(400).json({ message: `${err}` });
+  }
+};
+
+export const reviewProduct = async (req, res) => {
+  const { id } = req.params;
+  const { username, rating, comment } = req.body;
+  console.log(req.body);
+  try {
+    const isExist = await Product.findById(id);
+    if (!isExist) return res.status(404).json({ message: "product not found" });
+
+    isExist.reviews.push({ username, rating, comment });
+    const avgRating =
+      isExist.reviews.reduce((acc, curr) => acc + curr.rating, 0) /
+      isExist.reviews.length;
+    isExist.rating = avgRating;
+    await isExist.save();
+    return res.status(200).json({ message: "review added successfully" });
   } catch (err) {
     return res.status(400).json({ message: `${err}` });
   }
